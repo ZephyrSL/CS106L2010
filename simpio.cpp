@@ -7,8 +7,10 @@
  *  Mainly from Stanford course CS106L
  */
 
-
-
+#include "simpio.h"
+#include <string>
+#include <iostream>
+#include <sstream>
 
 /*
  * Function: GetInteger
@@ -32,13 +34,13 @@ int GetInteger(){
         
         // Try reading an integer, continue if succeed
         int result;
-        stringstream >> result;
+        converter >> result;
         
         if( !converter.fail()){
             // Check whether there is any leftover data
             char remaining;
-            stringstream >> remaining;
-            if( stringstream.fail()){
+            converter >> remaining;
+            if( converter.fail()){
                 // This is no remaining data
                 return result;
             }
@@ -46,7 +48,7 @@ int GetInteger(){
                 cout << "Unexpected character: " << remaining << endl;
             }
         }
-        cout << "The input is not a legal integer" << endl;"
+        cout << "The input is not a legal integer" << endl;
         cout << "Retry:";
     }
 }
@@ -71,4 +73,3 @@ string GetLine(){
     getline(cin, result);
     return result;
 }
-

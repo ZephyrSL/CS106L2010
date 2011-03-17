@@ -10,8 +10,7 @@
 #ifndef _simpio_h
 #define _simpio_h
 
-#include <string>
-using namespace std;
+#include "genlib.h"
 
 /*
  * Function: GetInteger
@@ -35,7 +34,7 @@ int GetInteger();
  * the user is given a chance to retry.
  */
 
-//long GetLong();
+long GetLong();
 
 /*
  * Function: GetReal
@@ -47,7 +46,7 @@ int GetInteger();
  * a chance to reenter the value.
  */
 
-//double GetReal();
+double GetReal();
 
 /*
  * Function: GetLine
@@ -71,8 +70,8 @@ string GetLine();
  * using the Error function.
  */
 
-//void OpenFile(ifstream & infile, string filename);
-//void OpenFile(ofstream & outfile, string filename);
+void OpenFile(ifstream & infile, string filename);
+void OpenFile(ofstream & outfile, string filename);
 
 /*
  * Function: AskUserForInputFile
@@ -85,7 +84,7 @@ string GetLine();
  * is used to tell the user what kind of file is required.
  */
 
-//void AskUserForInputFile(ifstream & infile);
-//void AskUserForInputFile(string prompt, ifstream & infile);
+void AskUserForInputFile(ifstream & infile);
+void AskUserForInputFile(string prompt, ifstream & infile);
 
 #endif

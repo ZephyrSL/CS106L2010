@@ -1,0 +1,3 @@
+[Project]
+Manager=KDevCustomMakeManager
+Name=cs106_library
