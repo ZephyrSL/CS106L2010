@@ -7,5 +7,6 @@ test : $(OBJS)
 depends : $(SOURCES)
 	g++ -M $(SOURCES) > depends
 
+.PHONY : clean
 clean : 
 	rm -f $(OBJS) test

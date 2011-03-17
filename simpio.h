@@ -10,8 +10,7 @@
 #ifndef _simpio_h
 #define _simpio_h
 
-#include <string>
-using namespace std;
+#include "genlib.h"
 
 /*
  * Function: GetInteger

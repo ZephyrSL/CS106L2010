@@ -1,10 +1,12 @@
+#include "genlib.h"
 #include "simpio.h"
-#include <iostream>
-#include <string>
+#include "streamutil.h"
 
 using namespace std;
 
 int main(){
+    
+    // Test case of simpio
     string str;
     int num;
     cout << "Input a string: " << endl;
@@ -13,6 +15,14 @@ int main(){
     num = GetInteger();
     cout << str << "and " << num << endl;
 
+    // Test case of streamutil
+    //stringstream input;
+    string result;
+    cout << "Please input a space-separated string: " << endl;
+    //input << GetLine();
+    //input >> result;
+    result = ExtractFirstToken();
+    cout << "The first token is: " << result << endl;
+
     return 0;
 }
-

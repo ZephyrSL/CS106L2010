@@ -7,10 +7,8 @@
  *  Mainly from Stanford course CS106L
  */
 
+#include "genlib.h"
 #include "simpio.h"
-#include <string>
-#include <iostream>
-#include <sstream>
 
 /*
  * Function: GetInteger
