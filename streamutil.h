@@ -10,6 +10,6 @@
 
 #include "genlib.h"
 
-string ExtractFirstToken( );
+string ExtractFirstToken( stringstream& );
 
 #endif

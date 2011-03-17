@@ -16,12 +16,12 @@ int main(){
     cout << str << "and " << num << endl;
 
     // Test case of streamutil
-    //stringstream input;
+    stringstream input;
     string result;
     cout << "Please input a space-separated string: " << endl;
-    //input << GetLine();
+    input << GetLine();
     //input >> result;
-    result = ExtractFirstToken();
+    result = ExtractFirstToken( input);
     cout << "The first token is: " << result << endl;
 
     return 0;

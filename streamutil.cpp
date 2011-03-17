@@ -8,10 +8,10 @@
 #include "simpio.h"
 #include "streamutil.h"
 
-string ExtractFirstToken(){
+string ExtractFirstToken( stringstream& input){
     string result;
-    stringstream input;
-    input << GetLine();
+    //stringstream input;
+    //input << GetLine();
     input >> result;
     return result;
 }
