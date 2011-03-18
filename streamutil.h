@@ -12,4 +12,7 @@
 
 string ExtractFirstToken( stringstream& );
 
+bool HasHexLetters( int);
+
+
 #endif

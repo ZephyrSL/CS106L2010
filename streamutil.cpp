@@ -10,8 +10,23 @@
 
 string ExtractFirstToken( stringstream& input){
     string result;
-    //stringstream input;
-    //input << GetLine();
     input >> result;
     return result;
+}
+
+bool HasHexLetters( int input){
+    stringstream hexstr;
+    cout << "Input in Hex string: " << hex << input << endl;
+    hexstr << hex << input << endl;
+
+    while(!hexstr.eof()){
+        char temp;
+        hexstr >> dec >> temp;
+        if( !(temp >= '0' && temp <= '9')){
+            // The temp char is not Dec form
+            return true;
+        }
+    }
+
+    return false;
 }
