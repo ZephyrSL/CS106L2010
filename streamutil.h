@@ -14,5 +14,7 @@ string ExtractFirstToken( stringstream& );
 
 bool HasHexLetters( int);
 
+void GetBooleanWrapper( string&);
+bool GetBoolean( string&);
 
 #endif

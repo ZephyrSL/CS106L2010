@@ -30,3 +30,37 @@ bool HasHexLetters( int input){
 
     return false;
 }
+
+void GetBooleanWrapper( string& input){
+    stringstream converter;
+    converter << input;
+    int counter = 0;
+
+    while( !converter.eof()){
+        string temp;
+        bool result;
+        converter >> temp;
+        counter++;
+        
+        if( temp != "true" && temp != "false"){
+            cout << "Invalid input " << counter << endl;
+            continue;
+        }
+
+        result = GetBoolean( temp);
+
+        cout << "Input " << counter 
+             << " is " << boolalpha << result << endl;
+    }
+}
+
+    
+
+bool GetBoolean( string& input){
+    if( input == "true")
+        return true;
+    if( input == "false")
+        return false;
+}
+
+
