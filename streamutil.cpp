@@ -63,4 +63,49 @@ bool GetBoolean( string& input){
         return false;
 }
 
+bool ExcludeInteger( string& filename){
+    ifstream input;
+    input.open(filename.c_str());
+    if( !input.is_open()){
+        cerr << "Failed in reading file: " << filename << endl;
+        return false;
+    }
 
+    while( true){
+        int tmpInt;
+        input >> tmpInt;
+
+        if( input.eof() && input.fail()) // Important here!
+            break;
+
+        if( input.fail()){
+            input.clear();
+            string tmpStr;
+            input >> tmpStr;
+        }
+        else
+            cout << tmpInt << " ";
+    }
+
+    return true;
+}
+
+bool Exaggerate(char *source){
+    char *start = source;
+    if(start == NULL){
+        cerr << "Wrong input!" << endl;
+        return false;
+    }
+    char *findPtr = NULL; 
+    
+    while(*(start)!='\0'){
+        findPtr = strpbrk(start, "012345678");
+        if(findPtr != NULL){
+            *findPtr += 1;
+            start = findPtr + 1;
+        }
+        else
+            break;
+    }
+}
+        

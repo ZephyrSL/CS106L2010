@@ -34,7 +34,7 @@ int GetInteger();
  * the user is given a chance to retry.
  */
 
-//long GetLong();
+long GetLong();
 
 /*
  * Function: GetReal
@@ -46,7 +46,7 @@ int GetInteger();
  * a chance to reenter the value.
  */
 
-//double GetReal();
+double GetReal();
 
 /*
  * Function: GetLine

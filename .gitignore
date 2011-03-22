@@ -8,3 +8,4 @@
 # Objs 
 *.o
 test
+TestCase/

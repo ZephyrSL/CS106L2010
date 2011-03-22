@@ -51,6 +51,82 @@ int GetInteger(){
     }
 }
 
+/*
+ * Function: GetLong
+ * Usage: n = GetLong();
+ * ---------------------
+ * GetLong reads a line of text from standard input and scans
+ * it into a long integer.  The long is returned.  If the
+ * number cannot be scanned or if extra characters follow it,
+ * the user is given a chance to retry.
+ */
+
+long GetLong(){
+    while(true) // Read input until obtain a valid integer
+    {
+        stringstream converter;
+        converter << GetLine();
+        
+        // Try reading an integer, continue if succeed
+        long result;
+        converter >> result;
+        
+        if( !converter.fail()){
+            // Check whether there is any leftover data
+            char remaining;
+            converter >> remaining;
+            if( converter.fail()){
+                // This is no remaining data
+                return result;
+            }
+            else{
+                cout << "Unexpected character: " << remaining << endl;
+            }
+        }
+        cout << "The input is not a legal long integer" << endl;
+        cout << "Retry:";
+    }
+}
+
+
+
+/*
+ * Function: GetReal
+ * Usage: x = GetReal();
+ * ---------------------
+ * GetReal reads a line of text from standard input and scans
+ * it as a double.  If the number cannot be scanned or if extra
+ * characters follow after the number ends, the user is given
+ * a chance to reenter the value.
+ */
+
+double GetReal(){
+    while(true) // Read input until obtain a valid integer
+    {
+        stringstream converter;
+        converter << GetLine();
+        
+        // Try reading an integer, continue if succeed
+        double result;
+        converter >> result;
+        
+        if( !converter.fail()){
+            // Check whether there is any leftover data
+            char remaining;
+            converter >> remaining;
+            if( converter.fail()){
+                // This is no remaining data
+                return result;
+            }
+            else{
+                cout << "Unexpected character: " << remaining << endl;
+            }
+        }
+        cout << "The input is not a legal double" << endl;
+        cout << "Retry:";
+    }
+}
+
 
 
 /*
