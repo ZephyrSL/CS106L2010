@@ -15,5 +15,7 @@ int CountFrequency(const char*, char);
 char *GetSubstring(const char*, int, int);
 
 bool StrCaseEqual(const char*, const char*);
+
+char *CreateRepetitiveString(char chr, int length);
 #endif // for #ifndef _CSTR_UTILS_H
 

@@ -64,4 +64,13 @@ bool StrCaseEqual(const char* str1, const char* str2)
     if(str1[count]=='\0')
         return true;
     else if(str2[count]=='\0')
-        return false; }
+        return false;
+}
+
+char *CreateRepetitiveString(char chr, int length)
+{
+    char *result=new char[length+1];
+    memset(result, chr, length);
+    result[length]='\0';
+    return result;
+}
