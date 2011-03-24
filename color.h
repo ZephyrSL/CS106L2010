@@ -6,7 +6,11 @@
  * needed.  See the second half of Handout #08 for more
  * information.
  */
- 
+
+#ifndef DEFINE_COLOR
+#error
+#endif
+
 DEFINE_COLOR(Red, Cyan)
 DEFINE_COLOR(Green, Magenta)
 DEFINE_COLOR(Blue, Yellow)

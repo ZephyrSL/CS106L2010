@@ -1,5 +1,5 @@
-#ifndef _genlib_h
-#define _genlib_h
+#ifndef _GENLIB_H
+#define _GENLIB_H
 
 #include <string>
 #include <iostream>
@@ -8,4 +8,4 @@
 
 using namespace std;
 
-#endif
+#endif // for #ifndef _GENLIB_H
