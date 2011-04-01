@@ -2,9 +2,12 @@
  * Arthor: Stephen Li
  */
 #include "cstr_utils.h"
+#include "CS106LDebug.h" 
  
 bool TruncateString(char *str_ptr, int index)
 {
+    int length=strlen(str_ptr);
+    CS106LAssert(length>=index&&index>=0);
     *(str_ptr+index)='\0';
 
     return true;

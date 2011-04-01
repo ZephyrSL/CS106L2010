@@ -1,0 +1,114 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC := g++$/;"	m
+CFLAGS	Makefile	/^CFLAGS := -g -Wall -O3$/;"	m
+CS106LAssert	CS106LAssert.h	20;"	d
+CS106LAssert	CS106LAssert.h	24;"	d
+CS106LNotReached	CS106LNotReached.h	18;"	d
+CS106LNotReached	CS106LNotReached.h	22;"	d
+CS106LVerify	CS106LVerify.h	22;"	d
+CXXFLAGS	Makefile	/^CXXFLAGS := $(CFLAGS)$/;"	m
+ClockVectorInsert	STL_utils.cpp	/^void ClockVectorInsert()$/;"	f	signature:()
+ClockVectorInsert	STL_utils.h	/^void ClockVectorInsert();$/;"	p	signature:()
+Color	X_Macro.h	/^enum Color {$/;"	g
+CountFrequency	cstr_utils.cpp	/^int CountFrequency(const char *str, char key)$/;"	f	signature:(const char *str, char key)
+CountFrequency	cstr_utils.h	/^int CountFrequency(const char*, char);$/;"	p	signature:(const char*, char)
+CountLetters	STL_utils.cpp	/^bool CountLetters(ifstream& input, map<char,int>& table)$/;"	f	signature:(ifstream& input, map<char,int>& table)
+CountLetters	STL_utils.h	/^bool CountLetters(ifstream& input, map<char,int>& table);$/;"	p	signature:(ifstream& input, map<char,int>& table)
+CreateRepetitiveString	cstr_utils.cpp	/^char *CreateRepetitiveString(char chr, int length)$/;"	f	signature:(char chr, int length)
+CreateRepetitiveString	cstr_utils.h	/^char *CreateRepetitiveString(char chr, int length);$/;"	p	signature:(char chr, int length)
+CycleDeque	STL_utils.cpp	/^bool CycleDeque(deque<int>& deq, int iteration)$/;"	f	signature:(deque<int>& deq, int iteration)
+CycleDeque	STL_utils.h	/^bool CycleDeque(deque<int>&, int iteration);$/;"	p	signature:(deque<int>&, int iteration)
+CycleQueue	STL_utils.cpp	/^bool CycleQueue(queue<int>& que, int iteration)$/;"	f	signature:(queue<int>& que, int iteration)
+CycleQueue	STL_utils.h	/^bool CycleQueue(queue<int>&, int iteration);$/;"	p	signature:(queue<int>&, int iteration)
+CycleVector	STL_utils.cpp	/^bool CycleVector(vector<int>& vect, int iteration)$/;"	f	signature:(vector<int>& vect, int iteration)
+CycleVector	STL_utils.h	/^bool CycleVector(vector<int>&, int iteration);$/;"	p	signature:(vector<int>&, int iteration)
+DEFINE_COLOR	TestCase/error_test.cpp	1;"	d	file:
+DEFINE_COLOR	TestCase/error_test.cpp	3;"	d	file:
+DEFINE_COLOR	X_Macro.h	24;"	d
+DEFINE_COLOR	X_Macro.h	26;"	d
+DEFINE_COLOR	X_Macro.h	39;"	d
+DEFINE_COLOR	X_Macro.h	41;"	d
+DEFINE_COLOR	X_Macro.h	53;"	d
+DEFINE_COLOR	X_Macro.h	55;"	d
+DEFINE_COLOR	X_Macro.h	62;"	d
+DEFINE_COLOR	X_Macro.h	64;"	d
+DEPS	Makefile	/^DEPS := $(patsubst %.o,%.d,$(OBJS))$/;"	m
+DISABLE_ALL_CS106L_DEBUG	TestCase/debug_test.cpp	1;"	d	file:
+DoCS106LAssert	CS106LAssert.h	/^void DoCS106LAssert(bool invariant, string statement, string file, int line)$/;"	f	signature:(bool invariant, string statement, string file, int line)
+DoCS106LNotReached	CS106LNotReached.h	/^void DoCS106LNotReached(string errorlog, string file, int line)$/;"	f	signature:(string errorlog, string file, int line)
+DoCS106LVerify	CS106LVerify.h	/^void DoCS106LVerify(bool invariant, string statement, string file, int line)$/;"	f	signature:(bool invariant, string statement, string file, int line)
+EXECUTABLE	Makefile	/^EXECUTABLE := test$/;"	m
+Exaggerate	streamutil.cpp	/^bool Exaggerate(char *source){$/;"	f	signature:(char *source)
+Exaggerate	streamutil.h	/^bool Exaggerate(char *source);$/;"	p	signature:(char *source)
+ExcludeInteger	streamutil.cpp	/^bool ExcludeInteger( string& filename){$/;"	f	signature:( string& filename)
+ExcludeInteger	streamutil.h	/^bool ExcludeInteger( string&);$/;"	p	signature:( string&)
+ExtractFirstToken	streamutil.cpp	/^string ExtractFirstToken( stringstream& input){$/;"	f	signature:( stringstream& input)
+ExtractFirstToken	streamutil.h	/^string ExtractFirstToken( stringstream& );$/;"	p	signature:( stringstream& )
+GenerateGeneralFibonacciNumbers	STL_utils.cpp	/^bool GenerateGeneralFibonacciNumbers(vector<int>& array, int init_1, int init_2)$/;"	f	signature:(vector<int>& array, int init_1, int init_2)
+GenerateGeneralFibonacciNumbers	STL_utils.h	/^bool GenerateGeneralFibonacciNumbers(vector<int>& array, int init_1, int init_2);$/;"	p	signature:(vector<int>& array, int init_1, int init_2)
+GetBoolean	streamutil.cpp	/^bool GetBoolean( string& input){$/;"	f	signature:( string& input)
+GetBoolean	streamutil.h	/^bool GetBoolean( string&);$/;"	p	signature:( string&)
+GetBooleanWrapper	streamutil.cpp	/^void GetBooleanWrapper( string& input){$/;"	f	signature:( string& input)
+GetBooleanWrapper	streamutil.h	/^void GetBooleanWrapper( string&);$/;"	p	signature:( string&)
+GetColorName	X_Macro.h	/^string GetColorName(Color c)$/;"	f	signature:(Color c)
+GetInteger	simpio.cpp	/^int GetInteger(){$/;"	f	signature:()
+GetInteger	simpio.h	/^int GetInteger();$/;"	p	signature:()
+GetLine	simpio.cpp	/^string GetLine(){$/;"	f	signature:()
+GetLine	simpio.h	/^string GetLine();$/;"	p	signature:()
+GetLong	simpio.cpp	/^long GetLong(){$/;"	f	signature:()
+GetLong	simpio.h	/^long GetLong();$/;"	p	signature:()
+GetOppositeColor	X_Macro.h	/^Color GetOppositeColor(Color c)$/;"	f	signature:(Color c)
+GetReal	simpio.cpp	/^double GetReal(){$/;"	f	signature:()
+GetReal	simpio.h	/^double GetReal();$/;"	p	signature:()
+GetSubstring	cstr_utils.cpp	/^char *GetSubstring(const char* source, int start, int length)$/;"	f	signature:(const char* source, int start, int length)
+GetSubstring	cstr_utils.h	/^char *GetSubstring(const char*, int, int);$/;"	p	signature:(const char*, int, int)
+HDRS	Makefile	/^HDRS = $(wildcard *.h)$/;"	m
+HasHexLetters	streamutil.cpp	/^bool HasHexLetters( int input){$/;"	f	signature:( int input)
+HasHexLetters	streamutil.h	/^bool HasHexLetters( int);$/;"	p	signature:( int)
+ListSortVector	STL_utils.cpp	/^vector<int> ListSortVector(vector<int>& origin)$/;"	f	signature:(vector<int>& origin)
+ListSortVector	STL_utils.h	/^vector<int> ListSortVector(vector<int>& origin);$/;"	p	signature:(vector<int>& origin)
+LoadAllTokens	STL_utils.cpp	/^set<string> LoadAllTokens(string& filename)$/;"	f	signature:(string& filename)
+LoadAllTokens	STL_utils.h	/^set<string> LoadAllTokens(string& filenam);$/;"	p	signature:(string& filenam)
+MISSING_DEPS	Makefile	/^MISSING_DEPS := $(filter-out $(wildcard $(DEPS)),$(DEPS))$/;"	m
+MISSING_DEPS_SOURCES	Makefile	/^MISSING_DEPS_SOURCES := $(wildcard $(patsubst %.d,%.c,$(MISSING_DEPS)) \\$/;"	m
+NOT_A_COLOR	X_Macro.h	/^        NOT_A_COLOR$/;"	e	enum:Color
+NO_CS106L_ASSERT	CS106LDebug.h	4;"	d
+NO_CS106L_NOTREACHED	CS106LDebug.h	6;"	d
+NO_CS106L_VERIFY	CS106LDebug.h	5;"	d
+NumUniqueCharacters	STL_utils.cpp	/^int NumUniqueCharacters(string& toCount)$/;"	f	signature:(string& toCount)
+NumUniqueCharacters	STL_utils.h	/^int NumUniqueCharacters(string&);$/;"	p	signature:(string&)
+OBJS	Makefile	/^OBJS := $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SOURCE)))$/;"	m
+RM-F	Makefile	/^RM-F := rm -f$/;"	m
+ReverseStack	STL_utils.cpp	/^bool ReverseStack(stack<int>& stk)$/;"	f	signature:(stack<int>& stk)
+ReverseStack	STL_utils.h	/^bool ReverseStack(stack<int>& stk);$/;"	p	signature:(stack<int>& stk)
+SOURCE	Makefile	/^SOURCE := $(wildcard *.c) $(wildcard *.cpp)$/;"	m
+SetSortVector	STL_utils.cpp	/^vector<int> SetSortVector(vector<int>& origin)$/;"	f	signature:(vector<int>& origin)
+SetSortVector	STL_utils.h	/^vector<int> SetSortVector(vector<int>& origin);$/;"	p	signature:(vector<int>& origin)
+StrCaseEqual	cstr_utils.cpp	/^bool StrCaseEqual(const char* str1, const char* str2)$/;"	f	signature:(const char* str1, const char* str2)
+StrCaseEqual	cstr_utils.h	/^bool StrCaseEqual(const char*, const char*);$/;"	p	signature:(const char*, const char*)
+StringDuplicate	cstr_utils.cpp	/^char *StringDuplicate(char *orig)$/;"	f	signature:(char *orig)
+StringDuplicate	cstr_utils.h	/^char *StringDuplicate(char *);$/;"	p	signature:(char *)
+StringToColor	X_Macro.h	/^Color StringToColor(string name)$/;"	f	signature:(string name)
+TruncateString	cstr_utils.cpp	/^bool TruncateString(char *str_ptr, int index)$/;"	f	signature:(char *str_ptr, int index)
+TruncateString	cstr_utils.h	/^bool TruncateString(char *, int);$/;"	p	signature:(char *, int)
+_CS106LASSERT_H	CS106LAssert.h	2;"	d
+_CS106LDEBUG_H	CS106LDebug.h	2;"	d
+_CS106LNOTREACHED_H	CS106LNotReached.h	2;"	d
+_CS106LVERIFY_H	CS106LVerify.h	2;"	d
+_CSTR_UTILS_H	cstr_utils.h	2;"	d
+_GENLIB_H	genlib.h	2;"	d
+_STL_UTILS_H	STL_utils.h	2;"	d
+_simpio_h	simpio.h	11;"	d
+_streamutil_h	streamutil.h	10;"	d
+main	STL_test.cpp	/^int main()$/;"	f	signature:()
+main	TestCase/STL_test.cpp	/^int main()$/;"	f	signature:()
+main	TestCase/XMacros_test.cpp	/^int main(){$/;"	f	signature:()
+main	TestCase/cstr_utils_test.cpp	/^int main(){$/;"	f	signature:()
+main	TestCase/debug_test.cpp	/^int main(){$/;"	f	signature:()
+main	TestCase/error_test.cpp	/^int main()$/;"	f	signature:()
+main	TestCase/streamutil_test.cpp	/^int main(){$/;"	f	signature:()

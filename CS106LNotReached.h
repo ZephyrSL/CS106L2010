@@ -1,3 +1,5 @@
+#ifndef _CS106LNOTREACHED_H
+#define _CS106LNOTREACHED_H
 //#ifndef CS106LNOTREACHED_H
 //#define CS106LNOTREACHED_H
 
@@ -21,3 +23,4 @@ void DoCS106LNotReached(string errorlog, string file, int line)
 
 #endif
 //#endif
+#endif // for #ifndef _CS106LNOTREACHED_H

@@ -1,7 +1,9 @@
-//#ifndef CS106LASSERT_H
-//#define CS106LASSERT_H
+#ifndef _CS106LASSERT_H
+#define _CS106LASSERT_H
 
 #ifndef NO_CS106L_ASSERT
+
+#include <cstdlib>
 
 void DoCS106LAssert(bool invariant, string statement, string file, int line)
 {
@@ -23,3 +25,4 @@ void DoCS106LAssert(bool invariant, string statement, string file, int line)
 
 #endif
 //#endif
+#endif // for #ifndef _CS106LASSERT_H

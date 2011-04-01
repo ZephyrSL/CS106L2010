@@ -1,6 +1,5 @@
-#ifndef CS106LDEBUG_H
-#define CS106LDEBUG_H
-
+#ifndef _CS106LDEBUG_H
+#define _CS106LDEBUG_H
 #ifdef DISABLE_ALL_CS106L_DEBUG
 #define NO_CS106L_ASSERT
 #define NO_CS106L_VERIFY
@@ -13,4 +12,4 @@
 #include "CS106LVerify.h"
 #include "CS106LNotReached.h"
 
-#endif
+#endif // for #ifndef _CS106LDEBUG_H

@@ -1,3 +1,5 @@
+#ifndef _CS106LVERIFY_H
+#define _CS106LVERIFY_H
 // #ifndef CS106LVERIFY_H
 // #define CS106LVERIFY_H
 
@@ -20,3 +22,4 @@ void DoCS106LVerify(bool invariant, string statement, string file, int line)
 #define CS106LVerify(expr) DoCS106LVerify(expr, #expr, __FILE__, __LINE__)
 
 // #endif
+#endif // for #ifndef _CS106LVERIFY_H

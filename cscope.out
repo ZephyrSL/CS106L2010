@@ -1,0 +1,4340 @@
+cscope 15 $HOME/workspace/cs106_library               0000019686
+	@CS106LAssert.h
+
+1 #iâdeà
+_CS106LASSERT_H
+
+
+2 
+	#_CS106LASSERT_H
+
+
+	)
+
+4 #iâdeà
+NO_CS106L_ASSERT
+
+
+6 
+	~<c¡dlib
+>
+
+8 
+	$DoCS106LAs£¹
+(
+boŞ
+ 
+šv¬ŸÁ
+, 
+¡ršg
+ 
+¡©em’t
+, sŒšg 
+fe
+, 
+lše
+)
+
+10 if(!
+šv¬ŸÁ
+)
+
+12 
+û¼
+ << "CS106LAs£¹ Faed!" << 
+’dl
+;
+
+13 
+û¼
+ << "Ex´essiÚ: " << 
+¡©em’t
+ << 
+’dl
+;
+
+14 
+û¼
+ << "Fe: " << 
+fe
+ << 
+’dl
+;
+
+15 
+û¼
+ << "Lše: " << 
+lše
+ << 
+’dl
+;
+
+16 
+	`abÜt
+();
+
+18 
+	}
+}
+
+20 
+	#CS106LAs£¹
+(
+ex´
+è
+	`DoCS106LAs£¹
+Óx´, #ex´, 
+__FILE__
+, 
+__LINE__
+)
+
+	)
+
+24 
+	#CS106LAs£¹
+(
+ex´
+)
+
+	)
+
+	@CS106LDebug.h
+
+1 #iâdeà
+_CS106LDEBUG_H
+
+
+2 
+	#_CS106LDEBUG_H
+
+
+	)
+
+3 #ifdeà
+DISABLE_ALL_CS106L_DEBUG
+
+
+4 
+	#NO_CS106L_ASSERT
+
+
+	)
+
+5 
+	#NO_CS106L_VERIFY
+
+
+	)
+
+6 
+	#NO_CS106L_NOTREACHED
+
+
+	)
+
+9 
+	~<c¡dlib
+>
+
+10 
+	~"g’lib.h
+"
+
+11 
+	~"CS106LAs£¹.h
+"
+
+12 
+	~"CS106LV”ify.h
+"
+
+13 
+	~"CS106LNÙR—ched.h
+"
+
+	@CS106LNotReached.h
+
+1 #iâdeà
+_CS106LNOTREACHED_H
+
+
+2 
+	#_CS106LNOTREACHED_H
+
+
+	)
+
+6 #iâdeà
+NO_CS106L_NOTREACHED
+
+
+8 
+	$DoCS106LNÙR—ched
+(
+¡ršg
+ 
+”rÜlog
+, sŒšg 
+fe
+, 
+lše
+)
+
+11 
+û¼
+ << "CS106LNÙR—ched Faed!" << 
+’dl
+;
+
+12 
+û¼
+ << "S‹m’t: " << 
+”rÜlog
+ << 
+’dl
+;
+
+13 
+û¼
+ << "Fe: " << 
+fe
+ << 
+’dl
+;
+
+14 
+û¼
+ << "Lše: " << 
+lše
+ << 
+’dl
+;
+
+15 
+	`abÜt
+();
+
+16 
+	}
+}
+
+18 
+	#CS106LNÙR—ched
+(
+ex´
+è
+	`DoCS106LNÙR—ched
+Óx´, 
+__FILE__
+, 
+__LINE__
+)
+
+	)
+
+22 
+	#CS106LNÙR—ched
+(
+ex´
+)
+
+	)
+
+	@CS106LVerify.h
+
+1 #iâdeà
+_CS106LVERIFY_H
+
+
+2 
+	#_CS106LVERIFY_H
+
+
+	)
+
+6 
+	$DoCS106LV”ify
+(
+boŞ
+ 
+šv¬ŸÁ
+, 
+¡ršg
+ 
+¡©em’t
+, sŒšg 
+fe
+, 
+lše
+)
+
+8 if(!
+šv¬ŸÁ
+)
+
+10 
+û¼
+ << "CS106LV”ify Faed!" << 
+’dl
+;
+
+11 
+û¼
+ << "Ex´essiÚ: " << 
+¡©em’t
+ << 
+’dl
+;
+
+12 
+û¼
+ << "Fe: " << 
+fe
+ << 
+’dl
+;
+
+13 
+û¼
+ << "Lše: " << 
+lše
+ << 
+’dl
+;
+
+14 #iâdeà
+NO_CS106L_VERIFY
+
+
+15 
+	`abÜt
+();
+
+20 
+	}
+}
+
+22 
+	#CS106LV”ify
+(
+ex´
+è
+	`DoCS106LV”ify
+Óx´, #ex´, 
+__FILE__
+, 
+__LINE__
+)
+
+	)
+
+	@STL_test.cpp
+
+1 
+	~"STL_uts.h
+"
+
+2 
+	~"simpio.h
+"
+
+3 
+	~"g’lib.h
+"
+
+4 
+	~<veùÜ
+>
+
+5 
+	~<¡ack
+>
+
+7 
+	$maš
+()
+
+9 
+veùÜ
+<> 
+veù
+;
+
+10  
+i
+ = 0; i < 10; i++ )
+
+12 
+veù
+.
+	`push_back
+ ( 
+i
+ );
+
+15 
+¡ack
+<> 
+¡k_1
+,
+¡k_2
+;
+
+16  
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+ = 
+veù
+.
+	`begš
+();
+
+17 
+™r
+ !ğ
+veù
+.
+	`’d
+();
+
+18 ++
+™r
+ )
+
+20 
+¡k_1
+.
+	`push
+ ( *
+™r
+ );
+
+21 
+¡k_2
+.
+	`push
+ ( *
+™r
+ );
+
+24 
+cout
+ << 
+’dl
+ << "Original Stack: " <<ƒndl;
+
+25  !
+¡k_1
+.
+	`em±y
+() )
+
+27 
+cout
+ << 
+¡k_1
+.
+	`tİ
+() << ", ";
+
+28 
+¡k_1
+.
+	`pİ
+();
+
+31 
+	`Rev”£Sck
+ ( 
+¡k_2
+ );
+
+32 
+cout
+ << 
+’dl
+ << "Reverse Stack: " <<ƒndl;
+
+33  !
+¡k_2
+.
+	`em±y
+() )
+
+35 
+cout
+ << 
+¡k_2
+.
+	`tİ
+() << ", ";
+
+36 
+¡k_2
+.
+	`pİ
+();
+
+40 
+veùÜ
+<> 
+¬¿y
+;
+
+41 
+	`G’”©eG’”®FibÚacciNumb”s
+(
+¬¿y
+, 1, 2);
+
+42 
+cout
+ << 
+’dl
+ << "The Fibonacci‚umbers: " <<ƒndl;
+
+43 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¬¿y
+.
+	`begš
+();
+
+44 
+™r
+!=
+¬¿y
+.
+	`’d
+();
+
+45 ++
+™r
+)
+
+47 
+cout
+ << *
+™r
+ << ", ";
+
+51 
+queue
+<> 
+que
+;
+
+52 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¬¿y
+.
+	`begš
+();
+
+53 
+™r
+!=
+¬¿y
+.
+	`’d
+();
+
+54 ++
+™r
+)
+
+56 
+que
+.
+	`push
+(*
+™r
+);
+
+58 
+	`CyşeQueue
+(
+que
+, 10);
+
+59 
+cout
+ << 
+’dl
+ << "The cycled queue: " <<ƒndl;
+
+60 !
+que
+.
+	`em±y
+())
+
+62 
+cout
+ << 
+que
+.
+	`äÚt
+() << ", ";
+
+63 
+que
+.
+	`pİ
+();
+
+67 
+veùÜ
+<> 
+	`cyveù
+(
+¬¿y
+);
+
+68 
+	`CyşeVeùÜ
+(
+cyveù
+, 5);
+
+69 
+cout
+ << 
+’dl
+ << "The cycled vector: " <<ƒndl;
+
+70 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+cyveù
+.
+	`begš
+();
+
+71 
+™r
+!=
+cyveù
+.
+	`’d
+();
+
+72 ++
+™r
+)
+
+74 
+cout
+ << *
+™r
+ << ", ";
+
+78 
+deque
+<> 
+cydeq
+;
+
+79 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¬¿y
+.
+	`begš
+();
+
+80 
+™r
+!=
+¬¿y
+.
+	`’d
+();
+
+81 ++
+™r
+)
+
+83 
+cydeq
+.
+	`push_back
+(*
+™r
+);
+
+85 
+	`CyşeDeque
+(
+cydeq
+,10);
+
+86 
+cout
+ << 
+’dl
+ << "The cycled deque: " <<ƒndl;
+
+87 
+deque
+<>::
+™”©Ü
+ 
+™r
+=
+cydeq
+.
+	`begš
+();
+
+88 
+™r
+!=
+cydeq
+.
+	`’d
+();
+
+89 ++
+™r
+)
+
+91 
+cout
+ << *
+™r
+ << ", ";
+
+93 
+cout
+ << 
+’dl
+;
+
+95 
+	`ClockVeùÜIn£¹
+();
+
+97 
+if¡»am
+ 
+	`‹¡sourû
+("input_test.htm");
+
+98 
+m­
+<,> 
+bË
+;
+
+99 
+	`CouÁL‘‹rs
+(
+‹¡sourû
+,
+bË
+);
+
+101 
+veùÜ
+<> 
+sÜ‹dveù
+;
+
+103 
+sÜ‹dveù
+=
+	`Li¡SÜtVeùÜ
+(
+cyveù
+);
+
+104 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+sÜ‹dveù
+.
+	`begš
+();
+
+105 
+™r
+!=
+sÜ‹dveù
+.
+	`’d
+();
+
+106 ++
+™r
+)
+
+108 
+cout
+ << *
+™r
+ << ", ";
+
+111 
+¡ršg
+ 
+toCouÁ
+;
+
+112 
+toCouÁ
+=
+	`G‘Lše
+();
+
+113 
+cout
+ << 
+’dl
+ << "The‚um of unique characters: "
+
+114 << 
+	`NumUniqueCh¬aù”s
+(
+toCouÁ
+è<< 
+’dl
+;
+
+116 
+¡ršg
+ 
+f’ame
+;
+
+117 
+f’ame
+=
+	`G‘Lše
+();
+
+118 
+£t
+<
+¡ršg
+> 
+tok’s
+;
+
+119 
+tok’s
+=
+	`LßdAÎTok’s
+(
+f’ame
+);
+
+120 
+£t
+<
+¡ršg
+>::
+™”©Ü
+ 
+™r
+=
+tok’s
+.
+	`begš
+();
+
+121 
+™r
+!=
+tok’s
+.
+	`’d
+();
+
+122 ++
+™r
+)
+
+124 
+cout
+ << *
+™r
+ << 
+’dl
+;
+
+127 
+	}
+}
+
+	@STL_utils.cpp
+
+1 
+	~"STL_uts.h
+"
+
+2 
+	~"simpio.h
+"
+
+3 
+	~<ÿs£¹
+>
+
+5 
+boŞ
+ 
+Rev”£Sck
+(
+¡ack
+<>& 
+¡k
+)
+
+7 
+	gveùÜ
+<> 
+	gveù_tmp
+;
+
+8 !
+	g¡k
+.
+em±y
+())
+
+10 
+	gveù_tmp
+.
+push_back
+(
+¡k
+.
+tİ
+());
+
+11 
+	g¡k
+.
+pİ
+();
+
+14 
+	gveùÜ
+<>::
+™”©Ü
+ 
+IŒ
+ = 
+veù_tmp
+.
+begš
+();
+	gIŒ
+ !ğveù_tmp.
+’d
+();++Itr)
+
+16 
+	g¡k
+.
+push
+(*
+IŒ
+);
+
+19  
+	gŒue
+;
+
+22 
+boŞ
+ 
+G’”©eG’”®FibÚacciNumb”s
+(
+veùÜ
+<>& 
+¬¿y
+, 
+š™_1
+, 
+š™_2
+)
+
+24 if(!
+	g¬¿y
+.
+size
+()==0)
+
+26 
+cout
+ << "ThveùÜ i nÙƒm±y!" << 
+’dl
+;
+
+27  
+	gçl£
+;
+
+30 
+	g¬¿y
+.
+push_back
+(
+š™_1
+);
+
+31 
+	g¬¿y
+.
+push_back
+(
+š™_2
+);
+
+32 
+	gtmp1
+, 
+	gtmp2
+, 
+	gsum
+;
+
+33 
+	gtmp1
+=
+š™_1
+;
+
+34 
+	gtmp2
+=
+š™_2
+;
+
+35 cÚ¡ 
+	gRUNTIME
+ = 20;
+
+36 
+	gi
+=2;i<=
+RUNTIME
+;i++)
+
+38 
+	gsum
+=
+tmp1
++
+tmp2
+;
+
+39 
+	g¬¿y
+.
+push_back
+(
+sum
+);
+
+40 
+	gtmp1
+ = 
+tmp2
+;
+
+41 
+	gtmp2
+ = 
+sum
+;
+
+44  
+	gŒue
+;
+
+47 
+boŞ
+ 
+CyşeQueue
+(
+queue
+<>& 
+que
+, 
+™”©iÚ
+)
+
+49 
+as£¹
+(
+™”©iÚ
+>=0);
+
+50 
+	gcouÁ
+=
+™”©iÚ
+;
+
+51 
+	gcouÁ
+>0)
+
+53 
+	gque
+.
+push
+(
+que
+.
+äÚt
+());
+
+54 
+	gque
+.
+pİ
+();
+
+55 
+	gcouÁ
+--;
+
+57  
+	gŒue
+;
+
+60 
+boŞ
+ 
+CyşeVeùÜ
+(
+veùÜ
+<>& 
+veù
+, 
+™”©iÚ
+)
+
+62 
+as£¹
+(
+™”©iÚ
+>=0);
+
+63 
+	gveùÜ
+<>::
+size_ty³
+ 
+Üig
+ = 
+veù
+.
+size
+();
+
+67 
+	gveù
+.
+»size
+(
+Üig
++
+™”©iÚ
+);
+
+68 
+	gveùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+veù
+.
+begš
+();
+
+69 
+	gcouÁ
+=
+™”©iÚ
+;
+
+71 
+	gcouÁ
+>0)
+
+73 *(
+	g™r
++
+	gÜig
+)=*
+™r
+;
+
+74 ++
+	g™r
+;
+
+75 
+	gcouÁ
+--;
+
+77 
+	gveù
+.
+”a£
+(
+veù
+.
+begš
+(), veù.begš()+
+™”©iÚ
+);
+
+78  
+	gŒue
+;
+
+81 
+boŞ
+ 
+CyşeDeque
+(
+deque
+<>& 
+deq
+, 
+™”©iÚ
+)
+
+83 
+as£¹
+(
+™”©iÚ
+>=0);
+
+84 
+	gcouÁ
+=
+™”©iÚ
+;
+
+85 
+	gcouÁ
+>0)
+
+87 
+	gdeq
+.
+push_back
+(
+deq
+.
+äÚt
+());
+
+88 
+	gdeq
+.
+pİ_äÚt
+();
+
+89 
+	gcouÁ
+--;
+
+91  
+	gŒue
+;
+
+94 
+	$ClockVeùÜIn£¹
+()
+
+99 
+veùÜ
+<
+¡ršg
+> 
+¡rs
+;
+
+100 
+¡ršg
+ 
+¡r_tmp
+;
+
+104 
+if¡»am
+ 
+	`šput
+("input_test.htm");
+
+108 if(!
+šput
+.
+	`is_İ’
+())
+
+110 
+û¼
+ << "Failed in opening file: "
+
+111 << 
+¡r_tmp
+ << 
+’dl
+;
+
+115 
+Œue
+)
+
+117 
+¡r_tmp
+="";
+
+118 
+	`g‘lše
+(
+šput
+,
+¡r_tmp
+);
+
+119 if(
+šput
+.
+	`eof
+()&&šput.
+	`ç
+())
+
+121 
+¡rs
+.
+	`push_back
+(
+¡r_tmp
+);
+
+124 
+veùÜ
+<
+¡ršg
+>::
+size_ty³
+ 
+lš’um
+=
+¡rs
+.
+	`size
+();
+
+127 
+şock_t
+ 
+‹¡_Üig
+=
+	`şock
+();
+
+128 
+veùÜ
+<
+¡ršg
+> 
+veù
+;
+
+129 
+veùÜ
+<
+¡ršg
+>::
+™”©Ü
+ 
+™r
+=
+¡rs
+.
+	`begš
+();
+
+130 
+™r
+!=
+¡rs
+.
+	`’d
+();
+
+131 ++
+™r
+)
+
+133 
+veù
+.
+	`push_back
+(*
+™r
+);
+
+135 
+‹¡_Üig
+=
+	`şock
+()-test_orig;
+
+138 
+şock_t
+ 
+‹¡_rsv
+=
+	`şock
+();
+
+139 
+veùÜ
+<
+¡ršg
+> 
+veù_rsv
+;
+
+140 
+veù_rsv
+.
+	`»size
+(
+lš’um
+);
+
+141 
+veùÜ
+<
+¡ršg
+>::
+™”©Ü
+ 
+™r
+=
+¡rs
+.
+	`begš
+();
+
+142 
+™r
+!=
+¡rs
+.
+	`’d
+();
+
+143 ++
+™r
+)
+
+145 
+veù_rsv
+.
+	`push_back
+(*
+™r
+);
+
+147 
+‹¡_rsv
+=
+	`şock
+()-test_rsv;
+
+149 
+cout
+ << "Test without„eserve: "
+
+150 << (()(
+‹¡_Üig
+)/
+CLOCKS_PER_SEC
+)
+
+151 << " secÚds." << 
+’dl
+;
+
+152 
+cout
+ << "Test with„eserve: "
+
+153 << (()(
+‹¡_rsv
+)/
+CLOCKS_PER_SEC
+)
+
+154 << " secÚds." << 
+’dl
+;
+
+156 
+	}
+}
+
+158 
+boŞ
+ 
+CouÁL‘‹rs
+(
+if¡»am
+& 
+šput
+, 
+m­
+<,>& 
+bË
+)
+
+160 
+	gtmp
+;
+
+161 
+	gŒue
+)
+
+163 
+	gšput
+.
+g‘
+(
+tmp
+);
+
+164 if(
+	gšput
+.
+eof
+()&&šput.
+ç
+())
+
+166 
+	gbË
+[
+tmp
+]+=1;
+
+169 
+	gm­
+<,>::
+™”©Ü
+ 
+™r
+=
+bË
+.
+begš
+();
+
+170 
+	g™r
+!=
+bË
+.
+’d
+();
+
+171 ++
+	g™r
+)
+
+173 
+	gcout
+ << 
+	g™r
+->
+	gfœ¡
+ <<" : " << iŒ->
+	g£cÚd
+ << 
+	g’dl
+;
+
+176  
+	gŒue
+;
+
+179 
+	gveùÜ
+<> 
+S‘SÜtVeùÜ
+(
+veùÜ
+<>& 
+Üigš
+)
+
+181 
+	gmuÉi£t
+<> 
+	gbuf£t
+;
+
+182 
+	gveùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+Üigš
+.
+begš
+();
+
+183 
+	g™r
+!=
+Üigš
+.
+’d
+();
+
+184 ++
+	g™r
+)
+
+186 
+	gbuf£t
+.
+š£¹
+(*
+™r
+);
+
+189 
+	gveùÜ
+<> 
+	gsÜ‹dveù
+;
+
+190 
+	gsÜ‹dveù
+.
+»£rve
+(
+Üigš
+.
+size
+());
+
+191 
+	gmuÉi£t
+<>::
+™”©Ü
+ 
+™r
+=
+buf£t
+.
+begš
+();
+
+192 
+	g™r
+!=
+buf£t
+.
+’d
+();
+
+193 ++
+	g™r
+)
+
+195 
+	gsÜ‹dveù
+.
+push_back
+(*
+™r
+);
+
+198  
+	gsÜ‹dveù
+;
+
+201 
+	gveùÜ
+<> 
+Li¡SÜtVeùÜ
+(
+veùÜ
+<>& 
+Üigš
+)
+
+203 
+	gli¡
+<> 
+	gbuæi¡
+;
+
+204 
+	gveùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+Üigš
+.
+begš
+();
+
+205 
+	g™r
+!=
+Üigš
+.
+’d
+();
+
+206 ++
+	g™r
+)
+
+208 
+	gbuæi¡
+.
+push_back
+(*
+™r
+);
+
+211 
+	gbuæi¡
+.
+sÜt
+();
+
+212 
+	gveùÜ
+<> 
+	gsÜ‹dveù
+;
+
+213 
+	gsÜ‹dveù
+.
+»£rve
+(
+Üigš
+.
+size
+());
+
+214 
+	gli¡
+<>::
+™”©Ü
+ 
+™r
+=
+buæi¡
+.
+begš
+();
+
+215 
+	g™r
+!=
+buæi¡
+.
+’d
+();
+
+216 ++
+	g™r
+)
+
+218 
+	gsÜ‹dveù
+.
+push_back
+(*
+™r
+);
+
+221  
+	gsÜ‹dveù
+;
+
+224 
+	$NumUniqueCh¬aù”s
+(
+¡ršg
+& 
+toCouÁ
+)
+
+226 
+£t
+<> 
+	`bË
+(
+toCouÁ
+.
+	`begš
+(),toCouÁ.
+	`’d
+());
+
+237  
+bË
+.
+	`size
+();
+
+239 
+	}
+}
+
+241 
+	g£t
+<
+	g¡ršg
+> 
+	$LßdAÎTok’s
+(
+¡ršg
+& 
+f’ame
+)
+
+243 
+if¡»am
+ 
+	`¿wd©a
+(
+f’ame
+.
+	`c_¡r
+());
+
+244 
+£t
+<
+¡ršg
+> 
+tok’s
+;
+
+245 
+i¡»am_™”©Ü
+<
+¡ršg
+> 
+	`¿w™r
+(
+¿wd©a
+);
+
+246 
+i¡»am_™”©Ü
+<
+¡ršg
+> 
+eos
+;
+
+247 
+š£¹_™”©Ü
+<
+£t
+<
+¡ršg
+> > 
+	`tk™r
+(
+tok’s
+,tok’s.
+	`begš
+());
+
+248 
+¿w™r
+!=
+eos
+)
+
+250 *
+tk™r
+=*
+¿w™r
+;
+
+251 ++
+tk™r
+;
+
+252 ++
+¿w™r
+;
+
+254  
+tok’s
+;
+
+255 
+	}
+}
+
+	@STL_utils.h
+
+1 #iâdeà
+_STL_UTILS_H
+
+
+2 
+	#_STL_UTILS_H
+
+
+	)
+
+4 
+	~<¡ack
+>
+
+5 
+	~<veùÜ
+>
+
+6 
+	~<queue
+>
+
+7 
+	~<m­
+>
+
+8 
+	~<£t
+>
+
+9 
+	~<li¡
+>
+
+10 
+	~<™”©Ü
+>
+
+11 
+	~"g’lib.h
+"
+
+13 
+boŞ
+ 
+Rev”£Sck
+(
+¡ack
+<>& 
+¡k
+);
+
+15 
+boŞ
+ 
+G’”©eG’”®FibÚacciNumb”s
+(
+veùÜ
+<>& 
+¬¿y
+, 
+š™_1
+, 
+š™_2
+);
+
+17 
+boŞ
+ 
+CyşeQueue
+(
+queue
+<>&, 
+™”©iÚ
+);
+
+19 
+boŞ
+ 
+CyşeVeùÜ
+(
+veùÜ
+<>&, 
+™”©iÚ
+);
+
+21 
+boŞ
+ 
+CyşeDeque
+(
+deque
+<>&, 
+™”©iÚ
+);
+
+23 
+ClockVeùÜIn£¹
+();
+
+25 
+boŞ
+ 
+CouÁL‘‹rs
+(
+if¡»am
+& 
+šput
+, 
+m­
+<,>& 
+bË
+);
+
+27 
+	gveùÜ
+<> 
+S‘SÜtVeùÜ
+(
+veùÜ
+<>& 
+Üigš
+);
+
+29 
+	gveùÜ
+<> 
+Li¡SÜtVeùÜ
+(
+veùÜ
+<>& 
+Üigš
+);
+
+31 
+NumUniqueCh¬aù”s
+(
+¡ršg
+&);
+
+33 
+	g£t
+<
+	g¡ršg
+> 
+LßdAÎTok’s
+(
+¡ršg
+& 
+f’am
+);
+
+	@TestCase/STL_test.cpp
+
+1 
+	~"STL_uts.h
+"
+
+2 
+	~"simpio.h
+"
+
+3 
+	~"g’lib.h
+"
+
+4 
+	~<veùÜ
+>
+
+5 
+	~<¡ack
+>
+
+7 
+	$maš
+()
+
+9 
+veùÜ
+<> 
+veù
+;
+
+10  
+i
+ = 0; i < 10; i++ )
+
+12 
+veù
+.
+	`push_back
+ ( 
+i
+ );
+
+15 
+¡ack
+<> 
+¡k_1
+,
+¡k_2
+;
+
+16  
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+ = 
+veù
+.
+	`begš
+();
+
+17 
+™r
+ !ğ
+veù
+.
+	`’d
+();
+
+18 ++
+™r
+ )
+
+20 
+¡k_1
+.
+	`push
+ ( *
+™r
+ );
+
+21 
+¡k_2
+.
+	`push
+ ( *
+™r
+ );
+
+24 
+cout
+ << 
+’dl
+ << "Original Stack: " <<ƒndl;
+
+25  !
+¡k_1
+.
+	`em±y
+() )
+
+27 
+cout
+ << 
+¡k_1
+.
+	`tİ
+() << ", ";
+
+28 
+¡k_1
+.
+	`pİ
+();
+
+31 
+	`Rev”£Sck
+ ( 
+¡k_2
+ );
+
+32 
+cout
+ << 
+’dl
+ << "Reverse Stack: " <<ƒndl;
+
+33  !
+¡k_2
+.
+	`em±y
+() )
+
+35 
+cout
+ << 
+¡k_2
+.
+	`tİ
+() << ", ";
+
+36 
+¡k_2
+.
+	`pİ
+();
+
+40 
+veùÜ
+<> 
+¬¿y
+;
+
+41 
+	`G’”©eG’”®FibÚacciNumb”s
+(
+¬¿y
+, 1, 2);
+
+42 
+cout
+ << 
+’dl
+ << "The Fibonacci‚umbers: " <<ƒndl;
+
+43 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¬¿y
+.
+	`begš
+();
+
+44 
+™r
+!=
+¬¿y
+.
+	`’d
+();
+
+45 ++
+™r
+)
+
+47 
+cout
+ << *
+™r
+ << ", ";
+
+51 
+queue
+<> 
+que
+;
+
+52 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¬¿y
+.
+	`begš
+();
+
+53 
+™r
+!=
+¬¿y
+.
+	`’d
+();
+
+54 ++
+™r
+)
+
+56 
+que
+.
+	`push
+(*
+™r
+);
+
+58 
+	`CyşeQueue
+(
+que
+, 10);
+
+59 
+cout
+ << 
+’dl
+ << "The cycled queue: " <<ƒndl;
+
+60 !
+que
+.
+	`em±y
+())
+
+62 
+cout
+ << 
+que
+.
+	`äÚt
+() << ", ";
+
+63 
+que
+.
+	`pİ
+();
+
+67 
+veùÜ
+<> 
+	`cyveù
+(
+¬¿y
+);
+
+68 
+	`CyşeVeùÜ
+(
+cyveù
+, 5);
+
+69 
+cout
+ << 
+’dl
+ << "The cycled vector: " <<ƒndl;
+
+70 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+cyveù
+.
+	`begš
+();
+
+71 
+™r
+!=
+cyveù
+.
+	`’d
+();
+
+72 ++
+™r
+)
+
+74 
+cout
+ << *
+™r
+ << ", ";
+
+78 
+deque
+<> 
+cydeq
+;
+
+79 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¬¿y
+.
+	`begš
+();
+
+80 
+™r
+!=
+¬¿y
+.
+	`’d
+();
+
+81 ++
+™r
+)
+
+83 
+cydeq
+.
+	`push_back
+(*
+™r
+);
+
+85 
+	`CyşeDeque
+(
+cydeq
+,10);
+
+86 
+cout
+ << 
+’dl
+ << "The cycled deque: " <<ƒndl;
+
+87 
+deque
+<>::
+™”©Ü
+ 
+™r
+=
+cydeq
+.
+	`begš
+();
+
+88 
+™r
+!=
+cydeq
+.
+	`’d
+();
+
+89 ++
+™r
+)
+
+91 
+cout
+ << *
+™r
+ << ", ";
+
+93 
+cout
+ << 
+’dl
+;
+
+95 
+	`ClockVeùÜIn£¹
+();
+
+97 
+if¡»am
+ 
+	`‹¡sourû
+("input_test.htm");
+
+98 
+m­
+<,> 
+bË
+;
+
+99 
+	`CouÁL‘‹rs
+(
+‹¡sourû
+,
+bË
+);
+
+101 
+veùÜ
+<> 
+sÜ‹dveù
+;
+
+103 
+sÜ‹dveù
+=
+	`Li¡SÜtVeùÜ
+(
+cyveù
+);
+
+104 
+veùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+sÜ‹dveù
+.
+	`begš
+();
+
+105 
+™r
+!=
+sÜ‹dveù
+.
+	`’d
+();
+
+106 ++
+™r
+)
+
+108 
+cout
+ << *
+™r
+ << ", ";
+
+111 
+¡ršg
+ 
+toCouÁ
+;
+
+112 
+toCouÁ
+=
+	`G‘Lše
+();
+
+113 
+cout
+ << 
+’dl
+ << "The‚um of unique characters: "
+
+114 << 
+	`NumUniqueCh¬aù”s
+(
+toCouÁ
+è<< 
+’dl
+;
+
+116 
+¡ršg
+ 
+f’ame
+;
+
+117 
+f’ame
+=
+	`G‘Lše
+();
+
+118 
+£t
+<
+¡ršg
+> 
+tok’s
+;
+
+119 
+tok’s
+=
+	`LßdAÎTok’s
+(
+f’ame
+);
+
+120 
+£t
+<
+¡ršg
+>::
+™”©Ü
+ 
+™r
+=
+tok’s
+.
+	`begš
+();
+
+121 
+™r
+!=
+tok’s
+.
+	`’d
+();
+
+122 ++
+™r
+)
+
+124 
+cout
+ << *
+™r
+ << 
+’dl
+;
+
+127 
+	}
+}
+
+	@TestCase/XMacros_test.cpp
+
+1 
+	~"X_Maüo.h
+"
+
+3 
+	$maš
+(){
+
+4 
+couÁ
+ = 0; count<=8; count++){
+
+5 
+cout
+ << 
+	`G‘CŞÜName
+(
+	`CŞÜ
+(
+couÁ
+)è<< 
+’dl
+;
+
+9 
+	}
+}
+
+	@TestCase/cstr_utils_test.cpp
+
+1 
+	~"g’lib.h
+"
+
+2 
+	~"c¡r_uts.h
+"
+
+3 
+	~"simpio.h
+"
+
+5 
+	$maš
+(){
+
+6 
+¿w
+[]="Whathe hell ishat!!!!";
+
+7 
+	`Trunÿ‹SŒšg
+(
+¿w
+, 
+	`¡¾’
+(raw));
+
+8 
+cout
+ << 
+	`¡ršg
+(
+¿w
+è<< 
+’dl
+;
+
+10 
+	}
+}
+
+	@TestCase/debug_test.cpp
+
+1 
+	#DISABLE_ALL_CS106L_DEBUG
+
+
+	)
+
+2 
+	~"CS106LDebug.h
+"
+
+4 
+	$maš
+(){
+
+5 *
+±r
+ = 
+NULL
+;
+
+7 
+	`CS106LV”ify
+Ğ
+±r
+ !ğ
+NULL
+);
+
+10 
+cout
+ << "NÙ AbÜt!" << 
+’dl
+;
+
+13 
+	}
+}
+
+	@TestCase/error_test.cpp
+
+1 
+	#DEFINE_COLOR
+(
+cŞÜ
+,
+İ
+)
+
+	)
+
+2 
+	~"cŞÜ.h
+"
+
+3 #undeà
+DEFINE_COLOR
+
+
+4 
+	~<io¡»am
+>
+
+5 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+6 
+	$maš
+()
+
+8 
+cout
+ << "Te¡" << 
+’dl
+;
+
+9 
+	}
+}
+
+	@TestCase/streamutil_test.cpp
+
+1 
+	~"g’lib.h
+"
+
+2 
+	~"simpio.h
+"
+
+3 
+	~"¡»amut.h
+"
+
+5 
+	$maš
+(){
+
+53 
+¡ršg
+ 
+šput
+;
+
+54 
+cout
+ << "Please input‡ string: ";
+
+55 
+šput
+ = 
+	`G‘Lše
+();
+
+56 *
+šput_ıy
+ = 
+Ãw
+ [
+šput
+.
+	`Ëngth
+()+1];
+
+57 
+	`¡rıy
+(
+šput_ıy
+, 
+šput
+.
+	`c_¡r
+());
+
+58 
+boŞ
+ 
+»suÉ
+ = 
+	`Exagg”©e
+(
+šput_ıy
+);
+
+59 
+cout
+ << 
+šput_ıy
+ << 
+’dl
+;
+
+63 
+	}
+}
+
+	@X_Macro.h
+
+14 
+	~<io¡»am
+>
+
+15 
+	~<¡ršg
+>
+
+16 
+	~<c¡ršg
+>
+
+17 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+19 
+	eCŞÜ
+ {
+
+24 
+	#DEFINE_COLOR
+(
+Çme
+, 
+İpos™e
+è
+eCŞÜ_
+##Çme,
+
+	)
+
+25 
+	~"cŞÜ.h
+"
+
+26 #undeà
+DEFINE_COLOR
+
+
+27 
+	mNOT_A_COLOR
+
+
+30 
+¡ršg
+ 
+	$G‘CŞÜName
+(
+CŞÜ
+ 
+c
+)
+
+32 
+c
+)
+
+39 
+	#DEFINE_COLOR
+(
+cŞÜ
+, 
+İpos™e
+è
+eCŞÜ_
+##cŞÜ:  #cŞÜ;
+
+	)
+
+40 
+	~"cŞÜ.h
+"
+
+41 #undeà
+DEFINE_COLOR
+;
+
+43 
+	}
+}
+
+45 
+CŞÜ
+ 
+	$G‘Oµos™eCŞÜ
+(
+CŞÜ
+ 
+c
+)
+
+47 
+c
+)
+
+53 
+	#DEFINE_COLOR
+(
+cŞÜ
+, 
+İpos™e
+è
+eCŞÜ_
+##cŞÜ: ƒCŞÜ_##İpos™e;
+
+	)
+
+54 
+	~"cŞÜ.h
+"
+
+55 #undeà
+DEFINE_COLOR
+
+
+57 
+	}
+}
+
+59 
+CŞÜ
+ 
+	$SŒšgToCŞÜ
+(
+¡ršg
+ 
+Çme
+)
+
+62 
+	#DEFINE_COLOR
+(
+cŞÜ
+,
+İpos™e
+èif(
+	`¡rcmp
+(#cŞÜ,
+Çme
+.
+	`c_¡r
+())==0è 
+eCŞÜ_
+##cŞÜ;
+
+	)
+
+63 
+	~"cŞÜ.h
+"
+
+64 #undeà
+DEFINE_COLOR
+
+
+65  
+NOT_A_COLOR
+;
+
+66 
+	}
+}
+
+	@color.h
+
+10 #iâdeà
+DEFINE_COLOR
+
+
+14 
+	$DEFINE_COLOR
+(
+Red
+, 
+Cyª
+)
+
+15 
+	$DEFINE_COLOR
+(
+G»’
+, 
+Mag’
+)
+
+16 
+	$DEFINE_COLOR
+(
+Blue
+, 
+Y–low
+)
+
+17 
+	$DEFINE_COLOR
+(
+Cyª
+, 
+Red
+)
+
+18 
+	$DEFINE_COLOR
+(
+Mag’
+, 
+G»’
+)
+
+19 
+	$DEFINE_COLOR
+(
+Y–low
+, 
+Blue
+)
+
+20 
+	$DEFINE_COLOR
+(
+Wh™e
+, 
+BÏck
+)
+
+21 
+	`DEFINE_COLOR
+(
+BÏck
+, 
+Wh™e
+)
+
+	@cstr_utils.cpp
+
+4 
+	~"c¡r_uts.h
+"
+
+5 
+	~"CS106LDebug.h
+"
+
+7 
+boŞ
+ 
+	$Trunÿ‹SŒšg
+(*
+¡r_±r
+, 
+šdex
+)
+
+9 
+Ëngth
+=
+	`¡¾’
+(
+¡r_±r
+);
+
+10 
+	`CS106LAs£¹
+(
+Ëngth
+>=
+šdex
+&&index>=0);
+
+11 *(
+¡r_±r
++
+šdex
+)='\0';
+
+13  
+Œue
+;
+
+14 
+	}
+}
+
+16 *
+	$SŒšgDu¶iÿ‹
+(*
+Üig
+)
+
+18 
+Ëngth
+ = 
+	`¡¾’
+(
+Üig
+);
+
+19 *
+»suÉ
+ = 
+Ãw
+ [
+Ëngth
++1];
+
+20 
+	`¡rıy
+(
+»suÉ
+,
+Üig
+);
+
+21  
+»suÉ
+;
+
+22 
+	}
+}
+
+24 
+	$CouÁF»qu’cy
+(cÚ¡ *
+¡r
+, 
+key
+)
+
+26 
+Ëngth
+ = 
+	`¡¾’
+(
+¡r
+);
+
+27 
+couÁ
+ = 0;
+
+28 
+i
+=0;i<
+Ëngth
+;i++)
+
+30 if(
+¡r
+[
+i
+]==
+key
+)
+
+31 
+couÁ
+++;
+
+33  
+couÁ
+;
+
+34 
+	}
+}
+
+36 *
+	$G‘Sub¡ršg
+(cÚ¡ * 
+sourû
+, 
+¡¬t
+, 
+Ëngth
+)
+
+38 *
+»suÉ
+ = 
+Ãw
+ [
+Ëngth
+];
+
+39 
+i
+=0; i<
+Ëngth
+; i++)
+
+41 
+»suÉ
+[
+i
+]=
+sourû
+[
+¡¬t
++i];
+
+43  
+»suÉ
+;
+
+44 
+	}
+}
+
+46 
+boŞ
+ 
+	$SŒCa£Equ®
+(cÚ¡ * 
+¡r1
+, cÚ¡ * 
+¡r2
+)
+
+48 
+couÁ
+ = 0;
+
+49 
+¡r1
+[
+couÁ
+]!='\0'&&
+¡r2
+[count]!='\0')
+
+51 
+‹mp1
+=
+¡r1
+[
+couÁ
+];
+
+52 
+‹mp2
+=
+¡r2
+[
+couÁ
+];
+
+53 if(
+	`i§Íha
+(
+‹mp1
+)&&i§Íha(
+‹mp2
+))
+
+55 
+‹mp1
+=
+	`tŞow”
+(temp1);
+
+56 
+‹mp2
+=
+	`tŞow”
+(temp2);
+
+59 if(
+‹mp1
+<
+‹mp2
+)
+
+60  
+Œue
+;
+
+61 if(
+‹mp1
+>
+‹mp2
+)
+
+62  
+çl£
+;
+
+64 
+couÁ
+++;
+
+67 if(
+¡r1
+[
+couÁ
+]=='\0')
+
+68  
+Œue
+;
+
+69 if(
+¡r2
+[
+couÁ
+]=='\0')
+
+70  
+çl£
+;
+
+71 
+	}
+}
+
+73 *
+	$C»©eR•‘™iveSŒšg
+(
+chr
+, 
+Ëngth
+)
+
+75 *
+»suÉ
+=
+Ãw
+ [
+Ëngth
++1];
+
+76 
+	`mem£t
+(
+»suÉ
+, 
+chr
+, 
+Ëngth
+);
+
+77 
+»suÉ
+[
+Ëngth
+]='\0';
+
+78  
+»suÉ
+;
+
+79 
+	}
+}
+
+	@cstr_utils.h
+
+1 #iâdeà
+_CSTR_UTILS_H
+
+
+2 
+	#_CSTR_UTILS_H
+
+
+	)
+
+4 
+	~<c¡dlib
+>
+
+5 
+	~<c¡ršg
+>
+
+6 
+	~<cùy³
+>
+
+7 
+	~"g’lib.h
+"
+
+9 
+boŞ
+ 
+Trunÿ‹SŒšg
+(*, );
+
+11 *
+SŒšgDu¶iÿ‹
+(*);
+
+13 
+CouÁF»qu’cy
+(const *, );
+
+15 *
+G‘Sub¡ršg
+(const *, , );
+
+17 
+boŞ
+ 
+SŒCa£Equ®
+(const *, const *);
+
+19 *
+C»©eR•‘™iveSŒšg
+(
+chr
+, 
+Ëngth
+);
+
+	@genlib.h
+
+1 #iâdeà
+_GENLIB_H
+
+
+2 
+	#_GENLIB_H
+
+
+	)
+
+4 
+	~<¡ršg
+>
+
+5 
+	~<io¡»am
+>
+
+6 
+	~<s¡»am
+>
+
+7 
+	~<f¡»am
+>
+
+9 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+	@simpio.cpp
+
+10 
+	~"g’lib.h
+"
+
+11 
+	~"simpio.h
+"
+
+23 
+	$G‘IÁeg”
+(){
+
+24 
+Œue
+)
+
+26 
+¡ršg¡»am
+ 
+cÚv”‹r
+;
+
+27 
+cÚv”‹r
+ << 
+	`G‘Lše
+();
+
+34 
+»suÉ
+;
+
+35 
+cÚv”‹r
+ >> 
+»suÉ
+;
+
+37 ifĞ!
+cÚv”‹r
+.
+	`ç
+()){
+
+39 
+»maššg
+;
+
+40 
+cÚv”‹r
+ >> 
+»maššg
+;
+
+41 ifĞ
+cÚv”‹r
+.
+	`ç
+()){
+
+43  
+»suÉ
+;
+
+46 
+cout
+ << "UÃx³ùed ch¬aù”: " << 
+»maššg
+ << 
+’dl
+;
+
+49 
+cout
+ << "Thšpuˆi nÙ‡†eg® iÁeg”" << 
+’dl
+;
+
+50 
+cout
+ << "Retry:";
+
+52 
+	}
+}
+
+64 
+	$G‘LÚg
+(){
+
+65 
+Œue
+)
+
+67 
+¡ršg¡»am
+ 
+cÚv”‹r
+;
+
+68 
+cÚv”‹r
+ << 
+	`G‘Lše
+();
+
+71 
+»suÉ
+;
+
+72 
+cÚv”‹r
+ >> 
+»suÉ
+;
+
+74 ifĞ!
+cÚv”‹r
+.
+	`ç
+()){
+
+76 
+»maššg
+;
+
+77 
+cÚv”‹r
+ >> 
+»maššg
+;
+
+78 ifĞ
+cÚv”‹r
+.
+	`ç
+()){
+
+80  
+»suÉ
+;
+
+83 
+cout
+ << "UÃx³ùed ch¬aù”: " << 
+»maššg
+ << 
+’dl
+;
+
+86 
+cout
+ << "Thšpuˆi nÙ‡†eg®†Úg iÁeg”" << 
+’dl
+;
+
+87 
+cout
+ << "Retry:";
+
+89 
+	}
+}
+
+103 
+	$G‘R—l
+(){
+
+104 
+Œue
+)
+
+106 
+¡ršg¡»am
+ 
+cÚv”‹r
+;
+
+107 
+cÚv”‹r
+ << 
+	`G‘Lše
+();
+
+110 
+»suÉ
+;
+
+111 
+cÚv”‹r
+ >> 
+»suÉ
+;
+
+113 ifĞ!
+cÚv”‹r
+.
+	`ç
+()){
+
+115 
+»maššg
+;
+
+116 
+cÚv”‹r
+ >> 
+»maššg
+;
+
+117 ifĞ
+cÚv”‹r
+.
+	`ç
+()){
+
+119  
+»suÉ
+;
+
+122 
+cout
+ << "UÃx³ùed ch¬aù”: " << 
+»maššg
+ << 
+’dl
+;
+
+125 
+cout
+ << "Thšpuˆi nÙ‡†eg® doubË" << 
+’dl
+;
+
+126 
+cout
+ << "Retry:";
+
+128 
+	}
+}
+
+141 
+¡ršg
+ 
+	$G‘Lše
+(){
+
+146 
+¡ršg
+ 
+»suÉ
+;
+
+147 
+	`g‘lše
+(
+cš
+, 
+»suÉ
+);
+
+148  
+»suÉ
+;
+
+149 
+	}
+}
+
+	@simpio.h
+
+10 #iâdeà
+_simpio_h
+
+
+11 
+	#_simpio_h
+
+
+	)
+
+13 
+	~"g’lib.h
+"
+
+25 
+G‘IÁeg”
+();
+
+37 
+G‘LÚg
+();
+
+49 
+G‘R—l
+();
+
+60 
+¡ršg
+ 
+G‘Lše
+();
+
+	@streamutil.cpp
+
+8 
+	~"simpio.h
+"
+
+9 
+	~"¡»amut.h
+"
+
+11 
+¡ršg
+ 
+	$ExŒaùFœ¡Tok’
+Ğ
+¡ršg¡»am
+& 
+šput
+){
+
+12 
+¡ršg
+ 
+»suÉ
+;
+
+13 
+šput
+ >> 
+»suÉ
+;
+
+14  
+»suÉ
+;
+
+15 
+	}
+}
+
+17 
+boŞ
+ 
+	$HasHexL‘‹rs
+Ğ
+šput
+){
+
+18 
+¡ršg¡»am
+ 
+hex¡r
+;
+
+19 
+cout
+ << "IÅuˆš Hex sŒšg: " << 
+hex
+ << 
+šput
+ << 
+’dl
+;
+
+20 
+hex¡r
+ << 
+hex
+ << 
+šput
+ << 
+’dl
+;
+
+22 !
+hex¡r
+.
+	`eof
+()){
+
+23 
+‹mp
+;
+
+24 
+hex¡r
+ >> 
+dec
+ >> 
+‹mp
+;
+
+25 ifĞ!(
+‹mp
+ >= '0' &&emp <= '9')){
+
+27  
+Œue
+;
+
+31  
+çl£
+;
+
+32 
+	}
+}
+
+34 
+	$G‘BoŞ—nW¿µ”
+Ğ
+¡ršg
+& 
+šput
+){
+
+35 
+¡ršg¡»am
+ 
+cÚv”‹r
+;
+
+36 
+cÚv”‹r
+ << 
+šput
+;
+
+37 
+couÁ”
+ = 0;
+
+39  !
+cÚv”‹r
+.
+	`eof
+()){
+
+40 
+¡ršg
+ 
+‹mp
+;
+
+41 
+boŞ
+ 
+»suÉ
+;
+
+42 
+cÚv”‹r
+ >> 
+‹mp
+;
+
+43 
+couÁ”
+++;
+
+45 ifĞ
+‹mp
+ != "true" &&emp != "false"){
+
+46 
+cout
+ << "Inv®id iÅuˆ" << 
+couÁ”
+ << 
+’dl
+;
+
+50 
+»suÉ
+ = 
+	`G‘BoŞ—n
+Ğ
+‹mp
+);
+
+52 
+cout
+ << "IÅuˆ" << 
+couÁ”
+
+
+53 << " i " << 
+boŞ®pha
+ << 
+»suÉ
+ << 
+’dl
+;
+
+55 
+	}
+}
+
+59 
+boŞ
+ 
+	$G‘BoŞ—n
+Ğ
+¡ršg
+& 
+šput
+){
+
+60 ifĞ
+šput
+ == "true")
+
+61  
+Œue
+;
+
+62 ifĞ
+šput
+ == "false")
+
+63  
+çl£
+;
+
+64 
+	}
+}
+
+66 
+boŞ
+ 
+	$ExşudeIÁeg”
+Ğ
+¡ršg
+& 
+f’ame
+){
+
+67 
+if¡»am
+ 
+šput
+;
+
+68 
+šput
+.
+	`İ’
+(
+f’ame
+.
+	`c_¡r
+());
+
+69 ifĞ!
+šput
+.
+	`is_İ’
+()){
+
+70 
+û¼
+ << "Faed iÀ»adšg fe: " << 
+f’ame
+ << 
+’dl
+;
+
+71  
+çl£
+;
+
+74  
+Œue
+){
+
+75 
+tmpIÁ
+;
+
+76 
+šput
+ >> 
+tmpIÁ
+;
+
+78 ifĞ
+šput
+.
+	`eof
+(è&& iÅut.
+	`ç
+())
+
+81 ifĞ
+šput
+.
+	`ç
+()){
+
+82 
+šput
+.
+	`ş—r
+();
+
+83 
+¡ršg
+ 
+tmpSŒ
+;
+
+84 
+šput
+ >> 
+tmpSŒ
+;
+
+87 
+cout
+ << 
+tmpIÁ
+ << " ";
+
+90  
+Œue
+;
+
+91 
+	}
+}
+
+93 
+boŞ
+ 
+	$Exagg”©e
+(*
+sourû
+){
+
+94 *
+¡¬t
+ = 
+sourû
+;
+
+95 if(
+¡¬t
+ =ğ
+NULL
+){
+
+96 
+û¼
+ << "WrÚg iÅut!" << 
+’dl
+;
+
+97  
+çl£
+;
+
+99 *
+fšdPŒ
+ = 
+NULL
+;
+
+101 *(
+¡¬t
+)!='\0'){
+
+102 
+fšdPŒ
+ = 
+	`¡½brk
+(
+¡¬t
+, "012345678");
+
+103 if(
+fšdPŒ
+ !ğ
+NULL
+){
+
+104 *
+fšdPŒ
+ += 1;
+
+105 
+¡¬t
+ = 
+fšdPŒ
+ + 1;
+
+110 
+	}
+}
+
+	@streamutil.h
+
+9 #iâdeà
+_¡»amut_h
+
+
+10 
+	#_¡»amut_h
+
+
+	)
+
+12 
+	~"g’lib.h
+"
+
+13 
+	~<c¡ršg
+>
+
+16 
+¡ršg
+ 
+ExŒaùFœ¡Tok’
+Ğ
+¡ršg¡»am
+& );
+
+18 
+boŞ
+ 
+HasHexL‘‹rs
+( );
+
+20 
+G‘BoŞ—nW¿µ”
+Ğ
+¡ršg
+&);
+
+21 
+boŞ
+ 
+G‘BoŞ—n
+Ğ
+¡ršg
+&);
+
+23 
+boŞ
+ 
+ExşudeIÁeg”
+Ğ
+¡ršg
+&);
+
+25 
+boŞ
+ 
+Exagg”©e
+(*
+sourû
+);
+
+	@
+1
+.
+1
+/usr/include
+22
+359
+CS106LAssert.h
+CS106LDebug.h
+CS106LNotReached.h
+CS106LVerify.h
+STL_test.cpp
+STL_utils.cpp
+STL_utils.h
+TestCase/STL_test.cpp
+TestCase/XMacros_test.cpp
+TestCase/cstr_utils_test.cpp
+TestCase/debug_test.cpp
+TestCase/error_test.cpp
+TestCase/streamutil_test.cpp
+X_Macro.h
+color.h
+cstr_utils.cpp
+cstr_utils.h
+genlib.h
+simpio.cpp
+simpio.h
+streamutil.cpp
+streamutil.h
