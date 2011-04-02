@@ -1,383 +1,936 @@
-<!DOCTYPE html>
-<!-- saved from url=(0092)http://code.google.com/intl/zh-CN/edu/languages/google-python-class/regular-expressions.html -->
-<html><script type="text/javascript" src="chrome-extension://khbjahpecnkenngkidhioicnfpakihgo/iframe_raw.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=GB2312">
 
-<title>Python Regular Expressions - Google's Python Class - Google Code</title>
-<script type="text/javascript"><!--
-(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+<title>C-Scene - Issue #2 - Article 10</title>
+</head><body>
+<pre>==============================================================================
+<a href="http://www.codersger.de/mags/cscene/CS2/CS2-01.html">C-Scene Issue #2</a>
+Multi-file projects and the GNU Make utility
+Author: George Foot
+Email: george.foot@merton.ox.ac.uk
+Occupation: Student at Merton College, Oxford University, England
+IRC nick: gfoot
+==============================================================================
 
-var _tocPath_ = '/edu/languages/google-python-class/_toc.ezt';
-var codesite_token = '81825abc31002d4e7265c9651a07b7e7';
-var logged_in_user_email = 'gosinnerscloud@gmail.com';
-//--></script>
-<link href="./06.Python Regular Expressions - Google's Python Class - Google Code_files/codesite.pack.04102009.css" type="text/css" rel="stylesheet">
-<script src="./06.Python Regular Expressions - Google's Python Class - Google Code_files/codesite_head.pack.04102009.js" type="text/javascript"></script>
-<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
-<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+Disclaimer: The author accepts no liability whatsoever for any
+            damage this may cause to anything, real, abstract or 
+            virtual, that you may or may not own. Any damage 
+            caused is your responsibility, not mine.
 
-<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+ Ownership: The section `Multi-file projects' remains the
+            property of the author, and is copyright (c) George
+            Foot May-July 1997. The remaining sections are the
+            property of CScene and are copyright (c) 1997 by
+            CScene, all rights reserved. Distribution of this
+            article, in whole or in part, is subject to the same
+            conditions as any other CScene article.
 
-    <link href="./06.Python Regular Expressions - Google's Python Class - Google Code_files/semantic_headers.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript" async="" src="./06.Python Regular Expressions - Google's Python Class - Google Code_files/ga.js"></script></head>
 
-  <body class="gc-documentation">
+0) Introduction
+~~~~~~~~~~~~~~~
 
-    
-    
+This article will explain firstly why, when and how to split
+your C source code between several files sensibly, and it will
+then go on to show you how the GNU Make utility can handle all
+your compilation and linking automatically. Users of other make
+utilities may still find the information useful, but it may
+require some adaptation to work on other utilities. If in doubt,
+try it out, but check the manual first.
 
-    <div id="gb">
- <span>
-  
+
+1) Multi-file projects
+~~~~~~~~~~~~~~~~~~~~~~
+
+   1.1 Why use them?
+   -----------------
    
-    <a href="http://code.google.com/intl/zh-CN/edu/languages/google-python-class/regular-expressions.html#" id="multilogin-dropdown" onclick="return false;"><u><b>gosinnerscloud@gmail.com</b></u> <small>▼</small></a>
-    |
+      Firstly, then, why are multi-file projects a good thing?
+      They appear to complicate things no end, requiring header
+      files, extern declarations, and meaning you need to search
+      through more files to find the function you're looking
+      for.
+
+      In fact, though, there are strong reasons to split up
+      projects. When you modify a line of your code, the
+      compiler has to recompile everything to create a new
+      executable. However, if your project is in several files
+      and you modify one of them, the object files for the other
+      source files are already on disk, so there's no point in
+      recompiling them. All you need to do is recompile the file
+      that was changed, and relink the object files. In a large
+      project this can mean the difference between a lengthy
+      (several minutes to several hours) rebuild and a ten or
+      twenty second adjustment.
+
+      With a little organisation, splitting a project between
+      files can make it much easier to find the piece of code
+      you are looking for. It's simple - you split the code
+      between the files based upon what the code does. Then if
+      you're looking for a routine you know exactly where to
+      find it.
+
+      It is much better to create a library from many object
+      files than from a single object file. Whether or not this
+      is a real advantage depends what system you're using, but
+      when gcc/ld links a library into a program at link time it
+      tries not to link in unused code. It can only exclude
+      entire object files from the library at a time, though, so
+      if you reference any symbols from a particular object file
+      of a library the whole object file must be linked in. If
+      the library is very segmented, the resulting executables
+      can be much smaller than they would be if the library
+      consisted of a single object file.
+
+      Also, since your program is very modular with the minimum
+      amount of sharing between files there are many other
+      benefits -- bugs are easier to track down, modules can
+      often be reused in another project, and last but not
+      least, other people will find it much easier to understand
+      what your code is doing.
+
+
+   1.2 When to split up your projects
+   ----------------------------------
+
+      It is obvisouly not sensible to split up *everything*;
+      small programs like `Hello World' can't really be split
+      anyway since there's nothing to split. Splitting up small
+      throwaway test programs is pretty pointless too. In
+      general, though, I split things whenever doing so seems to
+      improve the layout, development and readability of the
+      program. This is in fact true most of the time.
+
+      The decision about what to split and how is of course
+      yours; I can only make general suggestions here, which you
+      may or may not choose to follow.
+
+      If you are developing a fairly large project, you should
+      think before you start how you are going to implement it,
+      and create several (appropriately named) files initially
+      to hold your code. Of course, don't hesitate to create new
+      files later in development, but if you do then you are
+      changing your mind and should perhaps think about whether
+      some other structural changes would be appropriate.
+
+      For medium-sized projects, you can use the above technique
+      of course, or you might be able to just start typing, and
+      split the file up later when it is getting hard to manage.
+      In my experience, though, it is a great deal simpler to
+      start off with a scheme in mind and stick to it or adapt
+      it as the program's needs change during development.
+
+
+   1.3 How to split up projects
+   ----------------------------
+
+      Again, this is strictly my opinion; you may (probably
+      will?) prefer to lay things out differently. This is
+      touching on the controversial topic of coding style; what
+      I present here is simply my personal preference (along
+      with reasons for each of these guidelines):
+      
+         i) Don't make header files which span several source
+            files (exception: library header files). It's much
+            easier to track and usually more efficient if each
+            header file only declares symbols from one source
+            file. Otherwise, changing the structure of one
+            source file (and its header file) may cause more
+            files to be rebuilt that is really necessary.
+
+        ii) Where appropriate, do use more than one header file
+            for a source file. It is often useful to seperate
+            function prototypes, type definitions, etc, from the
+            C source file into a header file even when they are
+            not publicly available. Making one header file for
+            public symbols and one for private symbols means
+            that if you change the internals of the file you can
+            recompile it without having to recompile other files
+            that use the public header file.
+
+       iii) Don't duplicate information in several header files.
+            If you need to, #include one in the other, but don't
+            write out the same header information twice. The
+            reason for this is that if you change the
+            information in the future you will only need to
+            change it once, rather than hunting for duplicates
+            which would also need modifying.
+
+        iv) Make each source file #include all the header files
+            which declare information in the source file. Doing
+            this means that the compiler is more likely to pick
+            out mistakes, where you have declared something
+            differently in the header file to what it is in the
+            source file.
+
+
+   1.4 Notes on common errors
+   --------------------------
+
+      a) Identifier clashes between source files: In C,
+         variables and functions are by default public, so that
+         any C source file may refer to global variables and
+         functions from another C source file. This is true even
+         if the file in question does not have a declaration or
+         prototype for the variable or function. You must,
+         therefore, ensure that the same symbol name is not used
+         in two different files. If you don't do this you will
+         get linker errors and possibly warnings during
+         compilation.
+
+         One way of doing this is to prefix public symbols with
+         some string which depends on the source file they appear
+         in. For example, all the routines in gfx.c might begin
+         with the prefix `gfx_'. If you are careful with the way
+         you split up your program, use sensible function names,
+         and don't go overboard with global variables, this
+         shouldn't be a problem anyway.
+
+         To prevent a symbol from being visible from outside the
+         source file it is defined in, prefix its definition
+         with the keyword `static'. This is useful for small
+         functions which are used internally by a file, and
+         won't be needed by any other file.
+
+      b) Multiply defined symbols (again): A header file is
+         literally substituted into your C code in place of the
+         #include statement. Consequently, if the header file is
+         #included in more than one source file all the
+         definitions in the header file will occur in both
+         source files. This causes them to be defined more than
+         once, which gives a linker error (see above).
+
+         Solution: don't define variables in header files. You
+         only want to declare them in the header file, and
+         define them (once only) in the appropriate C source
+         file, which should #include the header file of course
+         for type checking. The distinction between a
+         declaration and a definition is easy to miss for
+         beginners; a declaration tells the compiler that the
+         named symbol should exist and should have the specified
+         type, but it does not cause the compiler to allocate
+         storage space for it, while a definition does allocate
+         the space. To make a declaration rather than a
+         definition, put the keyword `extern' before the
+         definition.
+
+         So, if we have an integer called `counter' which we
+         want to be publicly available, we would define it in a
+         source file (one only) as `int counter;' at top level,
+         and declare it in a header file as `extern int
+         counter;'.
+
+         Function prototypes are implicitly extern, so they do
+         not create this problem.
+
+      c) Redefinitions, redeclarations, conflicting types:
+         Consider what happens if a C source file #includes both
+         a.h and b.h, and also a.h #includes b.h (which is
+         perfectly sensible; b.h might define some types that
+         a.h needs). Now, the C source file #includes b.h twice.
+         So every #define in b.h occurs twice, every declaration
+         occurs twice (not actually a problem), every typedef
+         occurs twice, etc. In theory, since they are exact
+         duplicates it shouldn't matter, but in practice it is
+         not valid C and you will probably get compiler errors
+         or at least warnings.
+
+         The solution to this problem is to ensure that the body
+         of each header file is included only once per source
+         file. This is generally achieved using preprocessor
+         directives. We will #define a macro for each header
+         file, as we enter the header file, and only use the
+         body of the file if the macro is not already defined.
+         In practice it is as simple as putting this at the
+         start of each header file:
+
+         #ifndef FILENAME_H
+         #define FILENAME_H
+
+         and then putting this at the end of it:
+
+         #endif
+
+         replacing FILENAME_H with the (capitalised) filename of
+         the header file, using an underline instead of a dot.
+         Some people like to put a comment after the #endif to
+         remind them what it is referring to, e.g.
+
+         #endif /* #ifndef FILENAME_H */
+         
+         Personally I don't do that since it's usually pretty
+         obvious, but it is a matter of style.
+
+         You only need to do this trick to header files that
+         generate the compiler errors, but it doesn't hurt to do
+         it to all header files.
+
+
+   1.5 Rebuilding a multi-file project
+   -----------------------------------
    
-    <a href="http://code.google.com/u/gosinnerscloud/" id="projects-dropdown" onclick="return false;"><span style="text-decoration:underline">My favorites</span> <span style="font-size:.75em;">▼</span></a>
-    |
-  
-    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration:underline">English</span> <span style="font-size:.75em;">▼</span></a>
-  
-   
-    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fzh-CN%2Fedu%2Flanguages%2Fgoogle-python-class%2Fregular-expressions.html" onclick="CODESITE_click(&#39;/gb/sc/signout&#39;);"><span style="text-decoration:underline">Sign out</span></a>
-   
-  
- </span>
-</div>
-
-<div class="gbh" style="left:0px;"></div>
-<div class="gbh" style="right:0px;"></div>
-
-<div id="gc-container">
-<a id="top"></a>
-<div id="skipto">
-  <a href="http://code.google.com/intl/zh-CN/edu/languages/google-python-class/regular-expressions.html#gc-pagecontent">Skip to page content</a>
-  <a href="http://code.google.com/intl/zh-CN/edu/languages/google-python-class/regular-expressions.html#gc-toc">Skip to main navigation</a>
-</div>
-
-<div id="gc-header">
-  <div id="logo"><a href="http://code.google.com/">
-  
-  
-     <img src="./06.Python Regular Expressions - Google's Python Class - Google Code_files/code_logo.gif" height="40" width="167" alt="Google Code" style="border:0;margin:3px 0 0 0;">
-  
-  
-  </a></div>
-  <div id="search">
-    <div id="searchForm">
-      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById(&#39;gsearchInput&#39;).value); return false;">
-      <noscript>
-      &lt;input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml"&gt;
-      </noscript>
-      <div id="gsc-search-box">
-        <input id="gsearchInput" type="text" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width:345px">
-        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
-        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
-        <div class="greytext">e.g. "adwords" or "open source"</div>
-      </div>
-      </form>
-    </div> <!-- end searchForm -->
-  </div> <!-- end search -->
-
-
-
-
-</div> <!-- end gc-header -->
-
-
-<div id="codesiteContent">
-
-<a id="gc-topnav-anchor"></a>
-<div id="gc-topnav"><img src="./06.Python Regular Expressions - Google's Python Class - Google Code_files/star_off.gif" width="15" height="15" id="gc-star">
-  <h1 class="default">Google's Python Class</h1>
-  <ul id="&quot;home&quot;" class="gc-topnav-tabs">
-<li>&nbsp;</li>
-  </ul>
-</div> <!-- end gc-topnav -->
-
-
-    <div class="g-section g-tpl-170">
-
-      <div class="g-unit g-first" id="gc-toc">
-        <ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
-  <li>
-    <h2><a href="http://code.google.com/edu/">Home</a></h2>
-  </li>
-  <li><h2 class="tlw-ignore">Python Sections</h2>
-    <ul>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/set-up.html">Python Set Up</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/introduction.html">Introduction</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/strings.html">Strings</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/lists.html">Lists</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/sorting.html">Sorting</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/dict-files.html">Dicts and Files</a></li>
-      <li class="selected"><a href="http://code.google.com/edu/languages/google-python-class/regular-expressions.html">Regular Expressions</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/utilities.html">Utilities</a></li>
-    </ul>
-  </li>
-  <li><h2 class="tlw-ignore">Lecture Videos day1, day2</h2>
-    <ul>
-      <li><a href="http://www.youtube.com/watch?v=tKTZoB2Vjuk">1.1 Introduction, strings</a></li> <!-- day 1 1-3 -->
-      <li><a href="http://www.youtube.com/watch?v=EPYupizJYQI">1.2 Lists and sorting</a></li>
-      <li><a href="http://www.youtube.com/watch?v=haycL41dAhg">1.3 Dicts and files</a></li>
-      <li><a href="http://www.youtube.com/watch?v=kWyoYtvJpe4">2.1 Regular expr</a></li> <!-- day 2 1-4 -->
-      <li><a href="http://www.youtube.com/watch?v=uKZ8GBKmeDM">2.2 Utilities</a></li>
-      <li><a href="http://www.youtube.com/watch?v=Nn2KQmVF5Og">2.3 Utilities urllib</a></li>
-      <li><a href="http://www.youtube.com/watch?v=IcteAbMC1Ok">2.4 Conclusions</a></li>
-    </ul>
-  </li>
-  <li><h2 class="tlw-ignore">Python Exercises</h2>
-    <ul>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/exercises/basic.html">Basic Exercises</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/exercises/baby-names.html">Baby Names Exercise</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/exercises/copy-special.html">Copy Special Exercise</a></li>
-      <li><a href="http://code.google.com/edu/languages/google-python-class/exercises/log-puzzle.html">Log Puzzle Exercise</a></li>
-    </ul>
-  </li>
-</ul>
-
-        <a class="hidden" href="http://code.google.com/intl/zh-CN/edu/languages/google-python-class/regular-expressions.html#gc-topnav-anchor">More Google's Python Class resource links</a>
-      </div>
-
-      <div class="g-unit" id="gc-pagecontent" style="position: relative; ">
-        <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
-
-
-        <h1 class="page_title">Python Regular Expressions</h1>
-
-
-
-<p>
-  <a href="http://code.google.com/edu/">Google Code University</a> › <a href="http://code.google.com/edu/languages/">Programming Languages</a>
-</p>
-
-<p>Regular expressions are a powerful language for matching text patterns. This page gives a basic introduction to regular expressions themselves sufficient for our Python exercises and shows how regular expressions work in Python. The Python "re" module provides regular expression support. <!-- link to better/more regex materials here, e.g. http://www.amk.ca/python/howto/regex/ --></p>
-
-<p>In Python a regular expression search is typically written as:</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">pat</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span></pre>
-
-<p>The re.search() method takes a regular expression pattern and a string and searches for that pattern within the string. If the search is successful, search() returns a match object or None otherwise. Therefore, the search is usually immediately followed by an if-statement to test if the search succeeded, as shown in the following example which searches for the pattern 'word:' followed by a 3 letter word (details below):</p>
-
-<pre class="prettyprint"><span class="pln">str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'an example word:cat!!'</span><span class="pln"><br>match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'word:\w\w\w'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br></span><span class="com"># If-statement after search() tests if it succeeded</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'found'</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="com">## 'found word:cat'</span><span class="pln"><br>&nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'did not find'</span></pre>
-
-<p>The code <code>match = re.search(pat, str)</code> stores the search result in a variable named "match". Then the if-statement tests the match -- if true the search succeeded and match.group() is the matching text (e.g. 'word:cat'). Otherwise if the match is false (None to be more specific), then the search did not succeed, and there is no matching text.</p>
-
-<p>The 'r' at the start of the pattern string designates a python "raw" string which passes through backslashes without change which is very handy for regular expressions (Java needs this feature badly!). I recommend that you always write pattern strings with the 'r' just as a habit.</p>
-
-<h2>Basic Patterns</h2>
-
-<p>The power of regular expressions is that they can specify patterns, not just fixed characters. Here are the most basic patterns which match single chars:</p>
-
-<ul>
-   <li> a, X, 9, &lt;  -- ordinary characters just match themselves exactly. The meta-characters which do not match themselves because they have special meanings are: . ^ $ * + ? { [ ] \ | ( ) (details below)
-
-   </li><li> . (a period) -- matches any single character except newline '\n'
-
-   </li><li> \w -- (lowercase w) matches a "word" character: a letter or digit or underbar [a-zA-Z0-9_]. Note that although "word" is the mnemonic for this, it only matches a single word char, not a whole word. \W (upper case W) matches any non-word character.
-
-   </li><li> \b -- boundary between word and non-word
-
-   </li><li> \s -- (lowercase s) matches a single whitespace character -- space, newline, return, tab, form [ \n\r\t\f]. \S (upper case S) matches any non-whitespace character.
-
-   </li><li> \t, \n, \r  -- tab, newline, return
-
-   </li><li> \d -- decimal digit [0-9] (some older regex utilities do not support but \d, but they all support \w and \s)
-
-   </li><li> ^ = start, $ = end -- match the start or end of the string
-
-   </li><li> \   -- inhibit the "specialness" of a character. So, for example, use \. to match a period or \\ to match a slash. If you are unsure if a character has special meaning, such as '@', you can put a slash in front of it, \@, to make sure it is treated just as a character.
-</li></ul>
-
-<h2>Basic Examples</h2>
-
-<p>Joke: what do you call a pig with three eyes?  piiig!</p>
-
-<p>The basic rules of regular expression search for a pattern within a string are:</p>
-
-<ul>
-   <li> The search proceeds through the string from start to end, stopping at the first match found
-
-   </li><li> All of the pattern must be matched, but not all of the string
-
-   </li><li> If <code>match = re.search(pat, str)</code> is successful, match is not None and in particular match.group() is the matching text
-</li></ul>
-
-<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## Search for pattern 'iii' in string 'piiig'.</span><span class="pln"><br>&nbsp; </span><span class="com">## All of the pattern must match, but it may appear anywhere.</span><span class="pln"><br>&nbsp; </span><span class="com">## On success, match.group() is matched text.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'iii'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"iii"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'igs'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;</span><span class="kwd">not</span><span class="pln"> found</span><span class="pun">,</span><span class="pln"> match </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">None</span><span class="pln"><br><br>&nbsp; </span><span class="com">## . = any char but \n</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'..g'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"iig"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## \d = digit char, \w = word char</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\d\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'p123g'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"123"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\w\w\w'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'@@abcd!!'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"abc"</span></pre>
-
-<h2>Repetition</h2>
-
-<p>Things get more interesting when you use + and * to specify repetition in the pattern</p>
-
-<ul>
-   <li> + -- 1 or more occurrences of the pattern to its left, e.g. 'i+' = one or more i's
-
-   </li><li> *  -- 0 or more occurrences of the pattern to its left
-
-   </li><li> ?  -- match 0 or 1 occurrences of the pattern to its left
-</li></ul>
-
-<h3>Leftmost &amp; Largest</h3>
-
-<p>First the search finds the leftmost match for the pattern, and second it tries to use up as much of the string as possible -- i.e. + and * go as far as possible (the + and * are said to be "greedy").</p>
-
-<h2>Repetition Examples</h2>
-
-<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## i+ = one or more i's, as many as possible.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'pi+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"piii"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Finds the first/leftmost solution, and within it drives the +</span><span class="pln"><br>&nbsp; </span><span class="com">## as far as possible (aka 'leftmost and largest').</span><span class="pln"><br>&nbsp; </span><span class="com">## In this example, note that it does not get to the second set of i's.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'i+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piigiiii'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"ii"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## \s* = zero or more whitespace chars</span><span class="pln"><br>&nbsp; </span><span class="com">## Here look for 3 digits, possibly separated by whitespace.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx1 2 &nbsp; 3xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1 2 &nbsp; 3"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx12 &nbsp;3xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"12 &nbsp;3"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx123xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"123"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## ^ = matches the start of string, so this fails:</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'^b\w+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'foobar'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;</span><span class="kwd">not</span><span class="pln"> found</span><span class="pun">,</span><span class="pln"> match </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">None</span><span class="pln"><br>&nbsp; </span><span class="com">## but without the ^ it succeeds:</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'b\w+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'foobar'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"bar"</span></pre>
-
-<h2>Emails Example</h2>
-
-<p>Suppose you want to find the email address inside the string 'xyz alice-b@google.com purple monkey'. We'll use this as a running example to demonstrate more regular expression features. Here's an attempt using the pattern r'\w+@\w+':</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice-b@google.com monkey dishwasher'</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\w+@\w+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## 'b@google'</span></pre>
-
-<p>The search does not get the whole email address in this case because the \w does not match the '-' or '.' in the address. We'll fix this using the regular expression features below.</p>
-
-<h3>Square Brackets</h3>
-
-<p>Square brackets can be used to indicate a set of chars, so [abc] matches 'a' or 'b' or 'c'. The codes \w, \s etc. work inside square brackets too with the one exception that dot (.) just means a literal dot. For the emails problem, the square brackets are an easy way to add '.' and '-' to the set of chars which can appear around the @ with the pattern r'[\w.-]+@[\w.-]+' to get the whole email address:</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'[\w.-]+@[\w.-]+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## 'alice-b@google.com'</span></pre>
-
-(More square-bracket features) You can also use a dash to indicate a range, so [a-z] matches all lowercase letters. To use a dash without indicating a range, put the dash last, e.g. [abc-]. An up-hat (^) at the start of a square-bracket set inverts it, so [^ab] means any char except 'a' or 'b'.
-
-<h2>Group Extraction</h2>
-
-<p>The "group" feature of a regular expression allows you to pick out parts of the matching text. Suppose for the emails problem that we want to extract the username and host separately. To do this, add parenthesis ( ) around the username and host in the pattern, like this: r'([\w.-]+)@([\w.-]+)'. In this case, the parenthesis do not change what the pattern will match, instead they establish logical "groups" inside of the match text. On a successful search, match.group(1) is the match text corresponding to the 1st left parenthesis, and match.group(2) is the text corresponding to the 2nd left parenthesis. The plain match.group() is still the whole match text as usual.</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice-b@google.com monkey dishwasher'</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="str">'([\w.-]+)@([\w.-]+)'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp; </span><span class="com">## 'alice-b@google.com' (the whole match)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 'alice-b' (the username, group 1)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 'google.com' (the host, group 2)</span></pre>
-
-<p>A common workflow with regular expressions is that you write a pattern for the thing you are looking for, adding parenthesis groups to extract the parts you want.</p>
-
-<h2>findall</h2>
-
-findall() is probably the single most powerful function in the re module. Above we used re.search() to find the first match for a pattern. findall() finds *all* the matches and returns them as a list of strings, with each string representing one match.
-
-<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## Suppose we have a text with many email addresses</span><span class="pln"><br>&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Here re.findall() returns a list of all the found email strings</span><span class="pln"><br>&nbsp; emails </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'[\w\.-]+@[\w\.-]+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"> </span><span class="com">## ['alice@google.com', 'bob@abc.com']</span><span class="pln"><br>&nbsp; </span><span class="kwd">for</span><span class="pln"> email </span><span class="kwd">in</span><span class="pln"> emails</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># do something with each found email string</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> email</span></pre>
-
-<h2>findall With Files</h2>
-
-<p>For files, you may be in the habit of writing a loop to iterate over the lines of the file, and you could then call findall() on each line. Instead, let findall() do the iteration for you -- much better! Just feed the whole file text into findall() and let it return a list of all the matches in a single step (recall that f.read() returns the whole text of a file in a single string):</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com"># Open file</span><span class="pln"><br>&nbsp; f </span><span class="pun">=</span><span class="pln"> open</span><span class="pun">(</span><span class="str">'test.txt'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'r'</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com"># Feed the file text into findall(); it returns a list of all the found strings</span><span class="pln"><br>&nbsp; strings </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'some pattern'</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">.</span><span class="pln">read</span><span class="pun">())</span></pre>
-
-<h2>findall and Groups</h2>
-
-<p>The parenthesis ( ) group mechanism can be combined with findall(). If the pattern includes 2 or more parenthesis groups, then instead of returning a list of strings, findall() returns a list of *tuples*. Each tuple represents one match of the pattern, and inside the tuple is the group(1), group(2) .. data. So if 2 parenthesis groups are added to the email pattern, then findall() returns a list of tuples, each length 2 containing the username and host, e.g. ('alice', 'google.com').</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br>&nbsp; tuples </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'([\w\.-]+)@([\w\.-]+)'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> tuples &nbsp;</span><span class="com">## [('alice', 'google.com'), ('bob', 'abc.com')]</span><span class="pln"><br>&nbsp; </span><span class="kwd">for</span><span class="pln"> tuple </span><span class="kwd">in</span><span class="pln"> tuples</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## username</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## host</span></pre>
-
-<p>Once you have the list of tuples, you can loop over it to do some computation for each tuple. If the pattern includes no parenthesis, then findall() returns a list of found strings as in earlier examples. If the pattern includes a single set of parenthesis, then findall() returns a list of strings corresponding to that single group. (Obscure optional feature: Sometimes you have paren ( ) groupings in the pattern, but which you do not want to extract. In that case, write the parens with a ?: at the start, e.g. (?: ) and that left paren will not count as a group result.)</p>
-
-<h2>RE Workflow and Debug</h2>
-
-<p>Regular expression patterns pack a lot of meaning into just a few characters , but they are so dense, you can spend a lot of time debugging your patterns. Set up your runtime so you can run a pattern and print what it matches easily, for example by running it on a small test text and printing the result of findall(). If the pattern matches nothing, try weakening the pattern, removing parts of it so you get too many matches. When it's matching nothing, you can't make any progress since there's nothing concrete to look at. Once it's matching too much, then you can work on tightening it up incrementally to hit just what you want.</p>
-
-<h2>Options</h2>
-
-<p>The re functions take options to modify the behavior of the pattern match. The option flag is added as an extra argument to the search() or findall() etc., e.g. re.search(pat, str, re.IGNORECASE).</p>
-<ul>
-   <li> IGNORECASE -- ignore upper/lowercase differences for matching, so 'a' matches both 'a' and 'A'.
-
-   </li><li> DOTALL -- allow dot (.) to match newline -- normally it matches anything but newline. This can trip you up -- you think .* matches everything, but by default it does not go past the end of a line. Note that \s (whitespace) includes newlines, so if you want to match a run of whitespace that may include a newline, you can just use \s*
-
-   </li><li> MULTILINE -- Within a string made of many lines, allow ^ and $ to match the start and end of each line. Normally ^/$ would just match the start and end of the whole string.
-</li></ul>
-
-<h2>Greedy vs. Non-Greedy (optional)</h2>
-
-<p>This is optional section which shows a more advanced regular expression technique not needed for the exercises.</p>
-
-<p>Suppose you have text with tags in it: &lt;b&gt;foo&lt;/b&gt; and &lt;i&gt;so on&lt;/i&gt;</p>
-
-<p>Suppose you are trying to match each tag with the pattern '(&lt;.*&gt;)' -- what does it match first?</p>
-
-<p>The result is a little surprising, but the greedy aspect of the .* causes it to match the whole '&lt;b&gt;foo&lt;/b&gt; and &lt;i&gt;so on&lt;/i&gt;' as one big match. The problem is that the .* goes as far as is it can, instead of stopping at the first &gt; (aka it is "greedy").</p>
-
-<p>There is an extension to regular expression where you add a ? at the end, such as .*? or .+?, changing them to be non-greedy. Now they stop as soon as they can. So the pattern '(&lt;.*?&gt;)' will get just '&lt;b&gt;' as the first match, and '&lt;/b&gt;' as the second match, and so on getting each &lt;..&gt; pair in turn.  The style is typically that you use a .*?, and then immediately its right look for some concrete marker (&gt; in this case) that forces the end of the .*? run.</p>
-
-<p>The *? extension originated in Perl, and regular expressions that include Perl's extensions are known as Perl Compatible Regular Expressions  -- pcre. Python includes pcre support. Many command line utils etc. have a flag where they accept pcre patterns. </p>
-
-<p>An older but widely used technique to code this idea of "all of these chars except stopping at X" uses the square-bracket style. For the above you could write the pattern, but instead of .* to get all the chars, use [^&gt;]* which skips over all characters which are not &gt; (the leading ^ "inverts" the square bracket set, so it matches any char not in the brackets).</p>
-
-<h2>Substitution (optional)</h2>
-
-<p>The re.sub(pat, replacement, str) function searches for all the instances of pattern in the given string, and replaces them. The replacement string can include '\1', '\2' which refer to the text from group(1), group(2), and so on from the original matching text.</p>
-
-<p>Here's an example which searches for all the email addresses, and changes them to keep the user (\1) but have yo-yo-dyne.com as the host.</p>
-
-<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br>&nbsp; </span><span class="com">## re.sub(pat, replacement, str) -- returns new string with all replacements,</span><span class="pln"><br>&nbsp; </span><span class="com">## \1 is group(1), \2 group(2) in the replacement</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> re</span><span class="pun">.</span><span class="kwd">sub</span><span class="pun">(</span><span class="pln">r</span><span class="str">'([\w\.-]+)@([\w\.-]+)'</span><span class="pun">,</span><span class="pln"> r</span><span class="str">'\1@yo-yo-dyne.com'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com">## purple alice@yo-yo-dyne.com, blah monkey bob@yo-yo-dyne.com blah dishwasher</span></pre>
-
-<h2>Exercise</h2>
-
-<p>To practice regular expressions, see the <a href="http://code.google.com/edu/languages/google-python-class/exercises/baby-names.html">Baby Names Exercise</a>.</p>
-
-
-
-      <div id="gc-collapsible" style="height: 4384px; "></div></div><!-- end gc-pagecontent -->
-    </div><!-- end gooey wrapper -->
-
-    </div> <!-- end codesite content -->
-
-
-<div id="gc-footer" dir="ltr">
-  <div class="text">
-    
-      <div class="notice">This material created by Nick Parlante at Google. The text and videos of Google's Python Class are made available under the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5</a> license.</div>
-    
-    ©2011 Google -
-    <a href="http://code.google.com/">Code Home</a> -
-    <a href="http://code.google.com/terms.html">Terms of Service</a> -
-    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
-    <a href="http://code.google.com/more/">Site Directory</a>
-    <br> <br>
-    Google Code offered in:
-    <a href="http://code.google.com/intl/en/">English</a> -
-    <a href="http://code.google.com/intl/es/">Español</a> -
-    <a href="http://code.google.com/intl/ja/">日本語</a> -
-    <a href="http://code.google.com/intl/ko/">한국어</a> -
-    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
-    <a href="http://code.google.com/intl/ru/">Pусский</a> -
-    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
-    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
-  </div>
-</div><!-- end gc-footer -->
-
-</div><!-- end gc-container -->
-
-<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
-<script src="./06.Python Regular Expressions - Google's Python Class - Google Code_files/codesite_tail.pack.04102009.js" type="text/javascript"></script>
-
-
-
-
-<script type="text/javascript">
-var _gaq = _gaq || [];
-
-_gaq.push(
-
-
-    ['siteTracker._setAccount', 'UA-18071-1'],
-    ['siteTracker._setDomainName', 'code.google.com'],
-    ['siteTracker._setCookiePath', window.location.pathname.substring(0,
-        window.location.pathname.lastIndexOf('/') + 1)],
-    ['siteTracker._trackPageview']
-);
-(function() {
-  var ga = document.createElement('script');
-
-  ga.type = 'text/javascript';
-  ga.async = true;
-  ga.src = 'http://www.google-analytics.com/ga.js';
-  (document.getElementsByTagName('head')[0] ||
-   document.getElementsByTagName('body')[0]).appendChild(ga);
- })();
-</script>
-
-
-
-
-  
-
-
-<div id="klip_select_container" class="klip_select_container" style="display: none; "><div id="klip_tl_draggable" class="klip_corner klip_corner_tl" style="display: none; "></div><div id="klip_br_draggable" class="klip_corner klip_corner_br" style="display: none; "></div><div id="klip_select_cancel" class="klip_button2 klip_button_cancel" style="display: none; " title="Cancel"></div><div id="klip_select_pin" class="klip_button2 klip_button_pin" style="display: none; " title="Pin"></div><div class="klip_bounder_border"></div><div class="klip_bounder_border"></div><div class="klip_bounder_border"></div><div class="klip_bounder_border"></div><div class="klip_bounder"></div><div class="klip_tracker"></div></div><div id="klip_edit_container" class="klip_edit_container" style="position: fixed; right: 0px; top: 20px; display: none; "><div id="klip_edit_send" class="klip_big_button awesome yellow" style="display: none; ">Send</div><div id="klip_edit_reselect" class="klip_big_button awesome blue" style="display: none; ">Reselect</div></div><div class="menuDiv instance0" id="menuDiv-lang-dropdown" style="display: none; "><div class="menuCategory default"><a class="menuItem" style="display: block; " href="http://code.google.com/intl/en/edu/languages/google-python-class/regular-expressions.html">English</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/es/edu/languages/google-python-class/regular-expressions.html">Español</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/ja/edu/languages/google-python-class/regular-expressions.html">日本語</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/ko/edu/languages/google-python-class/regular-expressions.html">한국어</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/pt-BR/edu/languages/google-python-class/regular-expressions.html">Português (Brasil)</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/ru/edu/languages/google-python-class/regular-expressions.html">Pусский</a><a class="menuItem" style="display: block; " href="./06.Python Regular Expressions - Google's Python Class - Google Code_files/06.Python Regular Expressions - Google's Python Class - Google Code.htm">中文 (简体)</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/zh-TW/edu/languages/google-python-class/regular-expressions.html">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow"></div><div id="cs-searchresults"><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div><div class="menuDiv instance1" id="menuDiv-multilogin-dropdown" style="display: none; "><span class="menuText" style="display: block; "><b>gosinnerscloud@gmail.com</b></span><div class="menuCategory controls"><hr class="menuSeparator"><a class="menuItem" style="display: block; " href="http://www.google.com/accounts/AddSession?service=code&continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fzh-CN%2Fedu%2Flanguages%2Fgoogle-python-class%2Fregular-expressions.html"><nobr>Sign in with another account...</nobr></a></div></div><div class="menuDiv instance2" id="menuDiv-projects-dropdown" style="display: none; "><b class="categoryTitle starred_projects" style="display: block; ">Starred projects</b><div class="menuCategory starred_projects"><a class="menuItem" style="display: block; " href="http://code.google.com/p/android-lighthouse/">android-lighthouse</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/android-notifier/">android-notifier</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/androidtabs/">androidtabs</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/appcfgwrapper/">appcfgwrapper</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/arduino/">arduino</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/bwapi/">bwapi</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/clementine-player/">clementine-player</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/google-ctemplate/">google-ctemplate</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/google-styleguide/">google-styleguide</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/googletest/">googletest</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/hyk-proxy/">hyk-proxy</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/latex-lab/">latex-lab</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/mjpeg-stream-client/">mjpeg-stream-client</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/mjpg-streamer-mini2440/">mjpg-streamer-mini2440</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/msysgit/">msysgit</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/nginxsrp/">nginxsrp</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/openbookproject/">openbookproject</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/opencv-extension-library/">opencv-extension-library</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/opm-server-mirror/">opm-server-mirror</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/papercrop/">papercrop</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/s3c2440camera/">s3c2440camera</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/scholarzhang/">scholarzhang</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/scitelatexide/">scitelatexide</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/securitycamviewer/">securitycamviewer</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/sigil/">sigil</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/stlchina/">stlchina</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/tortoisegit/">tortoisegit</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/v8/">v8</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/vinjncode/">vinjncode</a><a class="menuItem" style="display: block; " href="http://code.google.com/p/webm/">webm</a></div><div class="menuCategory controls"><hr class="menuSeparator"><a class="menuItem" style="display: block; " href="http://code.google.com/more/">Find developer products...</a><a class="menuItem" style="display: block; " href="http://code.google.com/hosting/">Find open source projects...</a></div></div></body></html>
+      It is important to recognise the distinction here between
+      compiling and linking. A compiler takes C source code and
+      generates some form of object code from that source code,
+      without resolving external references. A linker is then
+      invoked, which takes object file(s) and links them
+      together into an executable file, along with standard
+      libraries and other libraries you may specify. At this
+      stage references in one object file to symbols in another
+      are resolved, and depending on the linker unresolved
+      references may be reported, usually as errors.
+
+      The basic procedure, then, is to compile your C source
+      files one by one to object format, and finally link all
+      the object files together, along with any libraries you
+      need. How exactly you do this will depend on your
+      compiler; here I shall describe the commands for gcc,
+      which may also work on your compiler even if it is not
+      gcc.
+
+      Note that gcc is a multi-purpose tool which calls other
+      components (preprocessor, compiler, assembler, linker) as
+      required; which of these are called depends upon what the
+      input files are and what switches you give it.
+
+      Normally if you pass C source files alone it will
+      preprocess, compile and assemble them one by one, then
+      link to an executable file (usually called a.out) from the
+      resulting objectfiles. This would work in our case, but
+      would destroy many of the benefits of splitting the
+      project up in the first place.
+
+      If you pass the -c switch, gcc will compile the listed
+      files to object format only, naming the object files after
+      the C source files, replacing the `.c' or `.cc' suffix
+      with `.o'. If you pass a list of object files, gcc will
+      simply link them to form an executable, again called a.out
+      by default. You can change the name of the output file
+      from either of these by passing the -o switch followed by
+      a filename.
+
+      So, after altering a source file you need to recompile it
+      by calling `gcc -c filename.c' and then relink the project
+      by calling `gcc -o exec_filename *.o'. If you alter a
+      header file, you need to recompile all those source files
+      which #include it; you could type `gcc -c file1.c file2.c
+      file3.c' and then relink, for example.
+
+      This is, of course, fairly tedious; luckily there are
+      tools available to simplify this process. The second half
+      of this article describes such a tool: the GNU Make
+      utility.
+
+
+2) The GNU Make utility
+~~~~~~~~~~~~~~~~~~~~~~~
+
+   2.1 Basic makefile structure
+   ----------------------------
+
+      GNU Make's main action is to read through a text file (a
+      makefile) containing (principly) information about which
+      files (`targets') are created from which other files
+      (`dependencies') and what commands should be executed to
+      do this. Armed with this information, make will then look
+      at the files on disk and, if the timestamp on a target is
+      older than that on at least one of its dependencies, make
+      will issue the commands specified in the hope of bringing
+      the target file up to date.
+
+      The makefile is normally called (funnily enough)
+      `makefile' or `Makefile', but you can specify other
+      filenames on make's command line. If you don't, it will
+      look for `makefile' or `Makefile' so it's simplest just to
+      use those names.
+
+      A makefile consists (mainly) of a sequence of rules of
+      this form:
+
+      &lt;target&gt; : &lt;dependency&gt; &lt;dependency&gt; ...
+      (tab)&lt;command&gt;
+      (tab)&lt;command&gt;
+      .
+      .
+      .
+
+      For example, consider the following makefile:
+
+=== start of makefile ===
+myprog : foo.o bar.o
+	gcc foo.o bar.o -o myprog
+
+foo.o : foo.c foo.h bar.h
+	gcc -c foo.c -o foo.o
+
+bar.o : bar.c bar.h
+	gcc -c bar.c -o bar.o
+=== end of makefile ===
+
+      This is a very basic makefile - make starts at the top,
+      and uses the first target, `myprog', as its primary goal
+      (the thing it is ultimately trying to keep up-to-date).
+      The rule tells it that whenever the file `myprog' is older
+      than either `foo.o' or `bar.o', the command on the next
+      line should be executed.
+
+      However, before checking the timestamps of foo.o and bar.o
+      it first looks through the makefile for rules with foo.o
+      or bar.o as targets. It finds the rule for foo.o, seeing
+      that it depends on foo.c, foo.h and bar.h. It cannot find
+      additional rules saying how to create any of these files,
+      so it then checks the timestamps on disk. If any of these
+      files are newer than foo.o, the command `gcc -o foo.o
+      foo.c' will be executed, bringing foo.o up to date.
+
+      The same check is then made for bar.o, depending upon
+      bar.c and bar.h.
+
+      Now make returns to the rule for `myprog'. If either of
+      the other two rules were executed, myprog will need
+      rebuilding (one of the .o files will be newer than
+      `myprog') and so the linking command will be executed.
+
+      Hopefully at this stage you can see the benefit of using
+      the make utility to build your programs - all the tedious
+      checking mentioned at the end of the previous chapter is
+      done for you by make, checking the timestamps. A simple
+      change to one of your source files will cause that file to
+      be recompiled (since the .o file depends on the .c file)
+      and then the executable will be relinked (since the .o
+      file has now been modified). The real gain, though, shows
+      if you modify a header file - you no longer need to
+      remember which of your source files depended on it, since
+      the information is all there in the makefile. The make
+      utility will happily recompile any files which are listed
+      as depending on any modified header files, and relink if
+      required.
+
+      Of course, this depends on you making sure the rules in
+      the makefile are correct, listing only those header files
+      which are #included in the source file...
+
+
+   2.2 Writing make rules
+   ----------------------
+
+      The obvious (and simplest) way to write your rules is by
+      looking at each source file in turn, adding its object
+      file as a target, and the C source file as a dependency
+      along with all the headers it #includes. However, you
+      should also list as dependencies any other headers which
+      are #included by those headers, and any headers they
+      #include, and so on... it gets difficult to track. So is
+      there an easier way?
+
+      Of course there is - ask the compiler! It ought to know
+      what headers it would include when compiling each source
+      file. With gcc you can specify the -M switch, and then gcc
+      will send to stdout a rule for each C file you pass, with
+      the object file as a target and the C file and all headers
+      #included therein as dependencies. Note that this rule
+      will include both headers named between angle brackets
+      (`&lt;', `&gt;') and headers named in inverted commas (`"'); it
+      is often a pretty safe bet that the system header files
+      (like stdio.h, stdlib.h, etc) aren't going to change
+      though. If you pass -MM instead of -M to gcc, it will omit
+      any header files whose names were enclosed with angle
+      brackets.
+
+      The rule output by gcc won't have a command part; you can
+      either write in your own command, or just leave it and let
+      make use its implicit rule (see section 2.4).
+
+
+   2.3 Makefile variables
+   ----------------------
+
+      I wrote earlier that makefiles contain mainly rules.
+      Another thing they can contain are variable definitions.
+
+      A variable in a makefile is somewhat like an environment
+      variable; indeed, environment variables are translated
+      into make variables during the make process. They are case
+      sensitive, and normally specified in upper case. They can
+      be referenced almost anywhere, and so they can be used for
+      many purposes, for example:
+
+         i) Holding lists of files. In the makefile above, the
+            rule to make the executable contains the object
+            filenames as dependencies, and the same filenames
+            are passed to gcc in the command for that rule. If a
+            variable were used in both cases, adding new object
+            files would be simpler and less prone to error.
+
+        ii) Holding executable filenames. If your project is
+            taken to a non-gcc system, or if you just want to
+            use a different compiler, you would have to change
+            all calls to the compiler to use the new name. Using
+            a variable instead means that you need only change
+            the name in one place, and all the commands would be
+            updated.
+
+       iii) Holding compiler flags. Presumably you want all your
+            compilation commands to pass the same set of options
+            (e.g. -Wall -O -g); if you put the option list in a
+            variable then you can put the variable in all your
+            compiler calls and just change the options in one
+            place whenever you need to.
+
+      To set a variable, you simply write its name at the start
+      of a line, followed by an = sign, and then its new value.
+      To reference a variable later on you write a dollar sign,
+      then the variable name in brackets. For example, here is
+      the previous makefile rewritten using variables:
+      
+=== start of makefile ===
+OBJS = foo.o bar.o
+CC = gcc
+CFLAGS = -Wall -O -g
+
+myprog : $(OBJS)
+	$(CC) $(OBJS) -o myprog
+
+foo.o : foo.c foo.h bar.h
+	$(CC) $(CFLAGS) -c foo.c -o foo.o
+
+bar.o : bar.c bar.h
+	$(CC) $(CFLAGS) -c bar.c -o bar.o
+=== end of makefile ===
+
+      There are also various automatic variables, which are
+      defined for each rule. Three useful ones are $@, $&lt; and $^
+      (no brackets are needed for these). $@ expands to the
+      filename of the target of the rule, $&lt; expands to the
+      first dependency in the dependency list, and $^ expands to
+      the entire dependency list (with duplicate filenames
+      removed). Using these, then, we could write the above
+      makefile as:
+
+=== start of makefile ===
+OBJS = foo.o bar.o
+CC = gcc
+CFLAGS = -Wall -O -g
+
+myprog : $(OBJS)
+	$(CC) $^ -o $@
+
+foo.o : foo.c foo.h bar.h
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+
+bar.o : bar.c bar.h
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+=== end of makefile ===
+
+      There are many other things you can do with variables,
+      especially when you mix them with functions. For further
+      information, see the GNU Make manual.
+
+
+   2.4 Implicit rules
+   ------------------
+
+      Note that in that last makefile example the commands to
+      create the .o files are identical. This is hardly
+      surprising since they both achieve similar goals -
+      creating a .o file from a .c file and some others is a
+      standard procedure. In fact, make already knows how to do
+      it - it has built in rules called implicit rules which
+      tell it what to do if you don't put any commands in a
+      rule.
+
+      If we remove the commands from the rules for creating
+      foo.o and bar.o, make will fall back on its implicit rule
+      database and should find a suitable command. Its command
+      uses several variables, so you can easily customise it to
+      your tastes; it uses the variable CC to run a compiler
+      (just like we did earlier), passing it the CFLAGS variable
+      for C programs (CXXFLAGS for C++ programs), CPPFLAGS (C
+      preprocessor flags), TARGET_ARCH (don't worry about this),
+      then it puts the flag `-c' followed by the variable $&lt;
+      (first dependency), then the flag `-o' followed by the
+      variable $@ (the target file). The effective command for C
+      compilation is:
+      
+      $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $&lt; -o $@
+
+      You can define these variables however you like, of
+      course. This should explain why the output from gcc with
+      the -M or -MM switch is suitable for immediate inclusion
+      in a makefile.
+
+
+   2.5 Phony targets
+   -----------------
+
+      Suppose you had a project in which two executable files
+      needed to be created. You would want the primary goal to
+      create both files, but independently of each other - if
+      one needs rebuilding, the other may not. To achieve this
+      you can use what is called a phony target. A phony target
+      is just like a normal target, but it is not an actual file
+      on disk. Because of this, make assumes that it needs
+      creating, and always executes any commands in its rule,
+      after bringing its dependencies up to date.
+
+      So, if we write at the top of our makefile:
+
+      all : exec1 exec2
+
+      where exec1 and exec2 are the filenames of our two target
+      executables, make will set this as its primary goal and
+      try to bring `all' up to date on every invocation. Since
+      there are no commands here which will affect a file called
+      `all' on disk, this rule won't actually change the status
+      of `all' at all. However, since the file does not exist
+      make will check that exec1 and exec2 don't need
+      rebuilding, and rebuild them if they are out of date,
+      which is exactly what we wanted to do.
+
+      Phony targets can also be used to describe a set of non-
+      default actions. For example, you might want to remove all
+      the files generated by make. To do this, you could make a
+      rule in the makefile like this:
+
+      veryclean :
+      	rm *.o
+      	rm myprog
+
+      Provided no rules are listed as depending upon the target
+      `veryclean', this will never be executed. However, if the
+      user types `make veryclean' explicitly, make will use this
+      as its primary goal, and run the rm commands.
+
+      What if there is a file on disk called veryclean though?
+      In this case, since this rule has no dependencies, the
+      target `veryclean' must be up to date, and even if the
+      user explicitly asks make to recreate it nothing will
+      happen. The solution here is to declare all your phony
+      targets as .PHONY, telling make not to bother looking for
+      them on disk, not to bother checking implicit rules, and
+      to always assume that the specified target is not up to
+      date. Adding this line to the makefile containing the
+      above rule:
+
+      .PHONY : veryclean
+
+      would do the trick. Note that this is a special make rule,
+      that make knows .PHONY is a special target, and of course
+      you can put more dependencies in if you like and make will
+      know that they are all phony targets.
+
+
+   2.6 Functions
+   -------------
+
+      Functions in makefiles are very similar to variables - to
+      use them, you write a dollar sign, an open bracket, and
+      then the name followed by a space and a comma-separated
+      list of arguments, and lastly a closing bracket. For
+      example, there is a function called `wildcard' in GNU Make
+      which takes one argument and expands into a space-
+      separated list of all files matching the specification
+      given. To use it you could write something like
+
+      SOURCES = $(wildcard *.c)
+
+      which would create a list of all files ending in `.c' and
+      put it in the SOURCES variable. Of course, you don't have
+      to store the results in variables.
+
+      Another useful function is the patsubst function. It takes
+      three parameters - the first is a pattern to match, the
+      second shows what to replace it with, and the third is a
+      space-separated list of words to process. For example,
+      after the variable definition above,
+
+      OBJS = $(patsubst %.c,%.o,$(SOURCES))
+
+      would take all the words (filenames) in the SOURCES list
+      and for each, if it ends in `.c', it will replace the `.c'
+      with a `.o'. Note that the % symbol matches one or more
+      characters, and the string it matches each time is called
+      the stem. In the second parameter, the % is read as
+      whatever stem it matched in the first parameter.
+
+
+   2.7 A pretty effective makefile
+   -------------------------------
+
+      With the information so far we can write quite an
+      effective makefile, which will be able to do most of our
+      dependency checking for us, and will fit most projects
+      without much modification.
+
+      Firstly we need a basic makefile which will build the
+      program. We can make it search the current directory for
+      source files, and assume that they are all part of the
+      project, by using a variable SOURCES as above. It is
+      probably wise to also include *.cc, in case the
+      compilation is for C++.
+
+      SOURCES = $(wildcard *.c *.cc)
+
+      Using patsubst we can then create a list of object files
+      which will be created; if our sources list contains .cc
+      files as well as .c files we'll need to nest calls to
+      patsubst like so:
+
+      OBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SOURCES)))
+
+      The innermost patsubst call will replace the .cc files'
+      suffixes only, forming a list which the outermost patsubst
+      processes, replacing the .c files' suffixes.
+
+      Now we can form a rule to build the executable:
+
+      myprog : $(OBJS)
+      	gcc -o myprog $(OBJS)
+
+      Further rules may not be necessary; gcc knows already how
+      to create the object files. Next, we can make a rule to
+      create the dependency information:
+
+      depends : $(SOURCES)
+      	gcc -M $(SOURCES) &gt; depends
+
+      This creates a file called `depends' whenever it does not
+      exist or a source file is newer than the existing
+      depends' file, which contains the rules gcc created for
+      the source files. Now we need to get make to consider
+      these rules as part of the makefile. The technique here is
+      rather like the #include system in C - we simply ask make
+      to include this file in the makefile, like so:
+
+      include depends
+
+      GNU Make will see this, and check that `depends' is up to
+      date; if it is not, it will recreate it, following the
+      rule we gave. This done, it will include the (new) set of
+      rules and proceed to process the primary goal, `myprog'.
+      On seeing the rule for myprog, it will check all the
+      object files are up to date - using the rules from the
+      `depends' file, which we know is up to date itself.
+
+      This system is fairly inefficient, however, since whenever
+      a source file is changed all the source files must be
+      preprocessed again to create the `depends' file, and it
+      isn't 100% safe either since changing a header file will
+      not cause the dependency information to be updated.
+      However, it is quite useful as it stands.
+
+
+   2.8 A more effective makefile
+   -----------------------------
+
+      This is a makefile I use for most things I do. It should
+      build most projects without modification. I have used it
+      mainly with djgpp, a DOS port of gcc, so the executable
+      name, `alleg' library, and the RM-F variable reflect this.
+
+=== start of makefile ===
+
+######################################
+#                                    #
+#          Generic makefile          #
+#                                    #
+#           by George Foot           #
+# email: george.foot@merton.ox.ac.uk #
+#                                    #
+#   Copyright (c) 1997 George Foot   #
+#        All rights reserved.        #
+#                                    #
+#     No warranty, no liability;     #
+#   you use this at your own risk.   #
+#                                    #
+#     You are free to modify and     #
+#   distribute this without giving   #
+#   credit to the original author.   #
+#                                    #
+######################################
+
+### Customising
+#
+# Adjust the following if necessary; EXECUTABLE is the target
+# executable's filename, and LIBS is a list of libraries to link in
+# (e.g. alleg, stdcx, iostr, etc). You can override these on make's
+# command line of course, if you prefer to do it that way.
+
+EXECUTABLE := mushroom.exe
+LIBS := alleg
+
+# Now alter any implicit rules' variables if you like, e.g.:
+
+CFLAGS := -g -Wall -O3 -m486
+CXXFLAGS := $(CFLAGS)
+
+# The next bit checks to see whether rm is in your djgpp bin
+# directory; if not it uses del instead, but this can cause (harmless)
+# `File not found' error messages. If you are not using DOS at all,
+# set the variable to something which will unquestioningly remove
+# files.
+
+ifneq ($(wildcard $(DJDIR)/bin/rm.exe),)
+RM-F := rm -f
+else
+RM-F := del
+endif
+
+# You shouldn't need to change anything below this point.
+
+SOURCE := $(wildcard *.c) $(wildcard *.cc)
+OBJS := $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SOURCE)))
+DEPS := $(patsubst %.o,%.d,$(OBJS))
+MISSING_DEPS := $(filter-out $(wildcard $(DEPS)),$(DEPS))
+MISSING_DEPS_SOURCES := $(wildcard $(patsubst %.d,%.c,$(MISSING_DEPS)) \
+                                   $(patsubst %.d,%.cc,$(MISSING_DEPS)))
+CPPFLAGS += -MD
+
+.PHONY : everything deps objs clean veryclean rebuild
+
+everything : $(EXECUTABLE)
+
+deps : $(DEPS)
+
+objs : $(OBJS)
+
+clean :
+	@$(RM-F) *.o
+	@$(RM-F) *.d
+
+veryclean: clean
+	@$(RM-F) $(EXECUTABLE)
+
+rebuild: veryclean everything
+
+ifneq ($(MISSING_DEPS),)
+$(MISSING_DEPS) :
+	@$(RM-F) $(patsubst %.d,%.o,$@)
+endif
+
+-include $(DEPS)
+
+$(EXECUTABLE) : $(OBJS)
+	gcc -o $(EXECUTABLE) $(OBJS) $(addprefix -l,$(LIBS))
+
+=== end of makefile ===
+
+      A few things are worth explaining about this. Firstly, I
+      have defined most of my variables using := instead of =.
+      The effect of this is to immediately expand all function
+      and variable references in the definition. With =, the
+      function and variable references are left alone, meaning
+      that changing the value of a variable can change other
+      variables' values. For example:
+
+      A = foo
+      B = $(A)
+      # Now B is $(A) which is `foo'.
+      A = bar
+      # Now B is still $(A), but it is now `bar'.
+      B := $(A)
+      # B is now `bar'.
+      A = foo
+      # B is still `bar'.
+
+      After a # symbol make ignores any text until the end of
+      the line.
+
+      The ifneq...else...endif system is a way of conditionally
+      disabling/enabling parts of a makefile. ifeq takes two
+      parameters. If they are equal, it includes the portion of
+      the makefile up to the else (or endif, if there is no
+      else); if not, it includes the portion between else and
+      endif if the else is present. ifneq is exactly the
+      opposite.
+
+      The filter-out function takes two space-separated lists,
+      and expands to the second list with all members of the
+      first list removed. I have used it here to take the DEPS
+      list and remove all members which exist, leaving behind
+      any which are missing.
+
+      The CPPFLAGS as I mentioned earlier contains flags to pass
+      to the preprocessor in implicit rules. The -MD switch is
+      like -M, but the information is sent to a file whose name
+      is formed by removing the .c or .cc from the source file
+      and replacing it with a .d (which explains why I form the
+      DEPS variable that way). The files mentioned in DEPS are
+      included in the makefile later on using `-include', which
+      suppresses any errors if the files are not found on disk.
+
+      If any dependency files are missing, the makefile will
+      remove the corresponding .o file from disk as well,
+      causing make to rebuild it. Since CPPFLAGS specifies -MD,
+      the .d file will be recreated too.
+
+      Lastly, the addprefix function expands to the list given
+      in its second parameter, with its first parameter
+      prepended to each word of the list.
+
+      The targets of this makefile (which can be passed on the
+      command line to select them) are:
+
+         everything (default): Update the main executable, also
+            creating or updating a `.d' file and a `.o' file for
+            each source file.
+
+         deps: Just create/update a `.d' file for each source
+            file.
+
+         objs: Create/update the `.d' files and the object files
+            for each source file.
+
+         clean: Delete all the intermediate/dependency files
+            (*.d and *.o).
+
+         veryclean: Do `clean' and also delete the executable.
+
+         rebuild: Do `veryclean' and `everything'; i.e. rebuild
+            from scratch
+
+      Of these, clean, veryclean and rebuild are the only really
+      useful ones apart from the default of everything.
+
+      I am not aware of any way in which this makefile can fail,
+      given a directory of source files, unless the dependency
+      files have been mangled. If this does occur, simply typing
+      `make clean' should fix the problem by removing all the
+      dependency and object files. It's best not to mess around
+      with them, of course. If you see a way this makefile could
+      fail to do its job, please do let me know so that I can
+      fix it.
+
+
+3 In conclusion
+~~~~~~~~~~~~~~~
+
+   I hope this article has explained clearly enough how multi-
+   file projects work, and has shown how to use them in a way
+   which is logical and safe. You should be able to use the GNU
+   Make utility well enough now to manage small projects, and if
+   you understood what was written in the later sections you
+   should not have any trouble with it.
+
+   GNU Make is a powerful tool, and although it was designed
+   primarily for building programs in this way it has many other
+   uses. For more information on the utility, its syntax,
+   functions, and other features, you should (as with any GNU
+   tool) consult the info pages about it.
+
+
+</pre>
+
+<hr>
+C Scene Official Web Site :
+<a href="http://cscene.oftheinter.net/">http://cscene.oftheinter.net</a><br>
+C Scene Official Email : 
+<a href="mailto:cscene@mindless.com">cscene@mindless.com</a>
+<hr>
+<i><font size="-1" color="#008080">
+This page is Copyright &#169; 1997 By
+<a href="http://cscene.oftheinter.net/">C Scene</a>. All Rights Reserved
+</font></i>
+<hr>
+
+
+</body></html>
