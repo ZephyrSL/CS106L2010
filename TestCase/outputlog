@@ -1,0 +1,1462 @@
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 T
+To
+Tod
+Toda
+Today
+Today 
+Today i
+Today is
+Today is 
+Today is A
+Today is Ap
+Today is Apr
+Today is Apri
+Today is April
+Today is April'
+Today is April's
+Today is April's 
+Today is April's f
+Today is April's fo
+Today is April's foo
+Today is April's fool
+Today is April's fool!
+The square sum of 
+1, 2, 3, 4, The result: 5.47723
+Me First
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+	$(CC) $(CFLAGS) -c bar.c -o bar.o
+	$(CC) $(CFLAGS) -c foo.c -o foo.o
+	$(CC) $(OBJS) -o myprog
+	$(CC) $^ -o $@
+	@$(RM-F) $(EXECUTABLE)
+	@$(RM-F) $(patsubst %.d,%.o,$@)
+	@$(RM-F) *.d
+	@$(RM-F) *.o
+	gcc -c bar.c -o bar.o
+	gcc -c foo.c -o foo.o
+	gcc -o $(EXECUTABLE) $(OBJS) $(addprefix -l,$(LIBS))
+	gcc foo.o bar.o -o myprog
+   
+   
+      
+      
+      
+      	gcc -M $(SOURCES) &gt; depends
+      	gcc -o myprog $(OBJS)
+      	rm *.o
+      	rm myprog
+         
+                                   $(patsubst %.d,%.cc,$(MISSING_DEPS)))
+            (*.d and *.o).
+            (e.g. -Wall -O -g); if you put the option list in a
+            C source file into a header file even when they are
+            CScene, all rights reserved. Distribution of this
+            Foot May-July 1997. The remaining sections are the
+            If you need to, #include one in the other, but don't
+            a variable instead means that you need only change
+            all calls to the compiler to use the new name. Using
+            are passed to gcc in the command for that rule. If a
+            article, in whole or in part, is subject to the same
+            caused is your responsibility, not mine.
+            change it once, rather than hunting for duplicates
+            compilation commands to pass the same set of options
+            compiler calls and just change the options in one
+            conditions as any other CScene article.
+            creating or updating a `.d' file and a `.o' file for
+            damage this may cause to anything, real, abstract or 
+            differently in the header file to what it is in the
+            each source file.
+            easier to track and usually more efficient if each
+            file.
+            file. Otherwise, changing the structure of one
+            filenames as dependencies, and the same filenames
+            files (exception: library header files). It's much
+            files to be rebuilt that is really necessary.
+            files would be simpler and less prone to error.
+            for a source file. It is often useful to seperate
+            for each source file.
+            from scratch
+            function prototypes, type definitions, etc, from the
+            header file only declares symbols from one source
+            information in the future you will only need to
+            not publicly available. Making one header file for
+            out mistakes, where you have declared something
+            place whenever you need to.
+            property of CScene and are copyright (c) 1997 by
+            property of the author, and is copyright (c) George
+            public symbols and one for private symbols means
+            reason for this is that if you change the
+            recompile it without having to recompile other files
+            rule to make the executable contains the object
+            source file (and its header file) may cause more
+            source file.
+            taken to a non-gcc system, or if you just want to
+            that if you change the internals of the file you can
+            that use the public header file.
+            the name in one place, and all the commands would be
+            this means that the compiler is more likely to pick
+            updated.
+            use a different compiler, you would have to change
+            variable then you can put the variable in all your
+            variable were used in both cases, adding new object
+            virtual, that you may or may not own. Any damage 
+            which declare information in the source file. Doing
+            which would also need modifying.
+            write out the same header information twice. The
+         #define FILENAME_H
+         #endif
+         #endif /* #ifndef FILENAME_H */
+         #ifndef FILENAME_H
+         #include statement. Consequently, if the header file is
+         #included in more than one source file all the
+         Consider what happens if a C source file #includes both
+         Function prototypes are implicitly extern, so they do
+         In practice it is as simple as putting this at the
+         One way of doing this is to prefix public symbols with
+         Personally I don't do that since it's usually pretty
+         So every #define in b.h occurs twice, every declaration
+         So, if we have an integer called `counter' which we
+         Solution: don't define variables in header files. You
+         Some people like to put a comment after the #endif to
+         The solution to this problem is to ensure that the body
+         To prevent a symbol from being visible from outside the
+         You only need to do this trick to header files that
+         a.h and b.h, and also a.h #includes b.h (which is
+         a.h needs). Now, the C source file #includes b.h twice.
+         and declare it in a header file as `extern int
+         and don't go overboard with global variables, this
+         and then putting this at the end of it:
+         any C source file may refer to global variables and
+         beginners; a declaration tells the compiler that the
+         body of the file if the macro is not already defined.
+         clean: Delete all the intermediate/dependency files
+         compilation.
+         counter;'.
+         declaration and a definition is easy to miss for
+         define them (once only) in the appropriate C source
+         definition, put the keyword `extern' before the
+         definition.
+         definitions in the header file will occur in both
+         deps: Just create/update a `.d' file for each source
+         directives. We will #define a macro for each header
+         duplicates it shouldn't matter, but in practice it is
+         everything (default): Update the main executable, also
+         file, as we enter the header file, and only use the
+         file, which should #include the header file of course
+         file. This is generally achieved using preprocessor
+         for type checking. The distinction between a
+         functions from another C source file. This is true even
+         functions which are used internally by a file, and
+         generate the compiler errors, but it doesn't hurt to do
+         get linker errors and possibly warnings during
+         i) Don't make header files which span several source
+         i) Holding lists of files. In the makefile above, the
+         if the file in question does not have a declaration or
+         in two different files. If you don't do this you will
+         in. For example, all the routines in gfx.c might begin
+         it to all header files.
+         literally substituted into your C code in place of the
+         named symbol should exist and should have the specified
+         not create this problem.
+         not valid C and you will probably get compiler errors
+         objs: Create/update the `.d' files and the object files
+         obvious, but it is a matter of style.
+         occurs twice (not actually a problem), every typedef
+         occurs twice, etc. In theory, since they are exact
+         of each header file is included only once per source
+         once, which gives a linker error (see above).
+         only want to declare them in the header file, and
+         or at least warnings.
+         perfectly sensible; b.h might define some types that
+         prototype for the variable or function. You must,
+         rebuild: Do `veryclean' and `everything'; i.e. rebuild
+         remind them what it is referring to, e.g.
+         replacing FILENAME_H with the (capitalised) filename of
+         shouldn't be a problem anyway.
+         some string which depends on the source file they appear
+         source file (one only) as `int counter;' at top level,
+         source file it is defined in, prefix its definition
+         source files. This causes them to be defined more than
+         start of each header file:
+         storage space for it, while a definition does allocate
+         the header file, using an underline instead of a dot.
+         the space. To make a declaration rather than a
+         therefore, ensure that the same symbol name is not used
+         type, but it does not cause the compiler to allocate
+         variables and functions are by default public, so that
+         veryclean: Do `clean' and also delete the executable.
+         want to be publicly available, we would define it in a
+         with the keyword `static'. This is useful for small
+         with the prefix `gfx_'. If you are careful with the way
+         won't be needed by any other file.
+         you split up your program, use sensible function names,
+        ii) Holding executable filenames. If your project is
+        ii) Where appropriate, do use more than one header file
+        iv) Make each source file #include all the header files
+       iii) Don't duplicate information in several header files.
+       iii) Holding compiler flags. Presumably you want all your
+      # B is now `bar'.
+      # B is still `bar'.
+      # Now B is $(A) which is `foo'.
+      # Now B is still $(A), but it is now `bar'.
+      #include, and so on... it gets difficult to track. So is
+      #included therein as dependencies. Note that this rule
+      $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $&lt; -o $@
+      &lt;target&gt; : &lt;dependency&gt; &lt;dependency&gt; ...
+      (`&lt;', `&gt;') and headers named in inverted commas (`"'); it
+      (`dependencies') and what commands should be executed to
+      (first dependency), then the flag `-o' followed by the
+      (just like we did earlier), passing it the CFLAGS variable
+      (like stdio.h, stdlib.h, etc) aren't going to change
+      (no brackets are needed for these). $@ expands to the
+      (several minutes to several hours) rebuild and a ten or
+      (tab)&lt;command&gt;
+      (tab)&lt;command&gt;
+      (the thing it is ultimately trying to keep up-to-date).
+      .
+      .
+      .
+      .PHONY : veryclean
+      A = bar
+      A = foo
+      A = foo
+      A few things are worth explaining about this. Firstly, I
+      A makefile consists (mainly) of a sequence of rules of
+      A variable in a makefile is somewhat like an environment
+      After a # symbol make ignores any text until the end of
+      Again, this is strictly my opinion; you may (probably
+      Also, since your program is very modular with the minimum
+      Another thing they can contain are variable definitions.
+      Another useful function is the patsubst function. It takes
+      B := $(A)
+      B = $(A)
+      DEPS variable that way). The files mentioned in DEPS are
+      Firstly we need a basic makefile which will build the
+      Firstly, then, why are multi-file projects a good thing?
+      For example, consider the following makefile:
+      For medium-sized projects, you can use the above technique
+      Functions in makefiles are very similar to variables - to
+      Further rules may not be necessary; gcc knows already how
+      GNU Make will see this, and check that `depends' is up to
+      GNU Make's main action is to read through a text file (a
+      Hopefully at this stage you can see the benefit of using
+      However, before checking the timestamps of foo.o and bar.o
+      However, it is quite useful as it stands.
+      I am not aware of any way in which this makefile can fail,
+      I present here is simply my personal preference (along
+      I wrote earlier that makefiles contain mainly rules.
+      If any dependency files are missing, the makefile will
+      If we remove the commands from the rules for creating
+      If you are developing a fairly large project, you should
+      If you pass the -c switch, gcc will compile the listed
+      In fact, though, there are strong reasons to split up
+      In my experience, though, it is a great deal simpler to
+      In this case, since this rule has no dependencies, the
+      It is important to recognise the distinction here between
+      It is much better to create a library from many object
+      It is obvisouly not sensible to split up *everything*;
+      Lastly, the addprefix function expands to the list given
+      Normally if you pass C source files alone it will
+      Note that gcc is a multi-purpose tool which calls other
+      Note that in that last makefile example the commands to
+      Now make returns to the rule for `myprog'. If either of
+      Now we can form a rule to build the executable:
+      OBJS = $(patsubst %.c,%.o,$(SOURCES))
+      OBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SOURCES)))
+      Of course there is - ask the compiler! It ought to know
+      Of course, this depends on you making sure the rules in
+      Of these, clean, veryclean and rebuild are the only really
+      On seeing the rule for myprog, it will check all the
+      Phony targets can also be used to describe a set of non-
+      Provided no rules are listed as depending upon the target
+      SOURCES = $(wildcard *.c *.cc)
+      SOURCES = $(wildcard *.c)
+      So, after altering a source file you need to recompile it
+      So, if we write at the top of our makefile:
+      Suppose you had a project in which two executable files
+      The CPPFLAGS as I mentioned earlier contains flags to pass
+      The basic procedure, then, is to compile your C source
+      The decision about what to split and how is of course
+      The effect of this is to immediately expand all function
+      The filter-out function takes two space-separated lists,
+      The ifneq...else...endif system is a way of conditionally
+      The innermost patsubst call will replace the .cc files'
+      The makefile is normally called (funnily enough)
+      The obvious (and simplest) way to write your rules is by
+      The rule output by gcc won't have a command part; you can
+      The rule tells it that whenever the file `myprog' is older
+      The same check is then made for bar.o, depending upon
+      The targets of this makefile (which can be passed on the
+      There are also various automatic variables, which are
+      There are many other things you can do with variables,
+      They appear to complicate things no end, requiring header
+      This creates a file called `depends' whenever it does not
+      This is a makefile I use for most things I do. It should
+      This is a very basic makefile - make starts at the top,
+      This is, of course, fairly tedious; luckily there are
+      This system is fairly inefficient, however, since whenever
+      To reference a variable later on you write a dollar sign,
+      To set a variable, you simply write its name at the start
+      Using patsubst we can then create a list of object files
+      What if there is a file on disk called veryclean though?
+      With a little organisation, splitting a project between
+      With the information so far we can write quite an
+      You can define these variables however you like, of
+      `all' on disk, this rule won't actually change the status
+      `depends' file, which we know is up to date itself.
+      `make clean' should fix the problem by removing all the
+      `makefile' or `Makefile', but you can specify other
+      `myprog') and so the linking command will be executed.
+      `veryclean', this will never be executed. However, if the
+      a filename.
+      a source file is changed all the source files must be
+      a) Identifier clashes between source files: In C,
+      above rule:
+      additional rules saying how to create any of these files,
+      after bringing its dependencies up to date.
+      after the variable definition above,
+      all : exec1 exec2
+      along with all the headers it #includes. However, you
+      amount of sharing between files there are many other
+      and create several (appropriately named) files initially
+      and expands to the second list with all members of the
+      and for each, if it ends in `.c', it will replace the `.c'
+      and replacing it with a .d (which explains why I form the
+      and then the executable will be relinked (since the .o
+      and uses the first target, `myprog', as its primary goal
+      and variable references in the definition. With =, the
+      and you modify one of them, the object files for the other
+      any header files whose names were enclosed with angle
+      any which are missing.
+      anyway since there's nothing to split. Splitting up small
+      are #included by those headers, and any headers they
+      are resolved, and depending on the linker unresolved
+      as depending on any modified header files, and relink if
+      as its primary goal, and run the rm commands.
+      at the files on disk and, if the timestamp on a target is
+      b) Multiply defined symbols (again): A header file is
+      bar.c and bar.h.
+      be recompiled (since the .o file depends on the .c file)
+      be referenced almost anywhere, and so they can be used for
+      benefits -- bugs are easier to track down, modules can
+      between the files based upon what the code does. Then if
+      brackets.
+      build most projects without modification. I have used it
+      by calling `gcc -c filename.c' and then relink the project
+      by calling `gcc -o exec_filename *.o'. If you alter a
+      by default. You can change the name of the output file
+      c) Redefinitions, redeclarations, conflicting types:
+      can be much smaller than they would be if the library
+      causing make to rebuild it. Since CPPFLAGS specifies -MD,
+      change to one of your source files will cause that file to
+      changing your mind and should perhaps think about whether
+      characters, and the string it matches each time is called
+      checking mentioned at the end of the previous chapter is
+      command line to select them) are:
+      compilation is for C++.
+      compilation is:
+      compiler has to recompile everything to create a new
+      compiler; here I shall describe the commands for gcc,
+      compiling and linking. A compiler takes C source code and
+      components (preprocessor, compiler, assembler, linker) as
+      consisted of a single object file.
+      course. This should explain why the output from gcc with
+      create both files, but independently of each other - if
+      create the .o files are identical. This is hardly
+      create the dependency information:
+      creating a .o file from a .c file and some others is a
+      creating, and always executes any commands in its rule,
+      database and should find a suitable command. Its command
+      date. Adding this line to the makefile containing the
+      date; if it is not, it will recreate it, following the
+      default actions. For example, you might want to remove all
+      defined for each rule. Three useful ones are $@, $&lt; and $^
+      dependency and object files. It's best not to mess around
+      dependency checking for us, and will fit most projects
+      depends : $(SOURCES)
+      depends' file, which contains the rules gcc created for
+      disabling/enabling parts of a makefile. ifeq takes two
+      do this. Armed with this information, make will then look
+      done for you by make, checking the timestamps. A simple
+      effective makefile, which will be able to do most of our
+      either write in your own command, or just leave it and let
+      else); if not, it includes the portion between else and
+      endif if the else is present. ifneq is exactly the
+      entire object files from the library at a time, though, so
+      especially when you mix them with functions. For further
+      example, there is a function called `wildcard' in GNU Make
+      executable. However, if your project is in several files
+      executables, make will set this as its primary goal and
+      exist or a source file is newer than the existing
+      fail to do its job, please do let me know so that I can
+      file as a target, and the C source file as a dependency
+      file has now been modified). The real gain, though, shows
+      file. With gcc you can specify the -M switch, and then gcc
+      file3.c' and then relink, for example.
+      filename of the target of the rule, $&lt; expands to the
+      filenames on make's command line. If you don't, it will
+      files (`targets') are created from which other files
+      files are newer than foo.o, the command `gcc -o foo.o
+      files as well as .c files we'll need to nest calls to
+      files can make it much easier to find the piece of code
+      files have been mangled. If this does occur, simply typing
+      files later in development, but if you do then you are
+      files one by one to object format, and finally link all
+      files than from a single object file. Whether or not this
+      files to object format only, naming the object files after
+      files, extern declarations, and meaning you need to search
+      find it.
+      first dependency in the dependency list, and $^ expands to
+      first list removed. I have used it here to take the DEPS
+      fix it.
+      foo.c' will be executed, bringing foo.o up to date.
+      foo.o and bar.o, make will fall back on its implicit rule
+      for C programs (CXXFLAGS for C++ programs), CPPFLAGS (C
+      for.
+      from either of these by passing the -o switch followed by
+      function and variable references are left alone, meaning
+      gcc.
+      general, though, I split things whenever doing so seems to
+      generates some form of object code from that source code,
+      given a directory of source files, unless the dependency
+      given. To use it you could write something like
+      happen. The solution here is to declare all your phony
+      have defined most of my variables using := instead of =.
+      header file, you need to recompile all those source files
+      if you modify a header file - you no longer need to
+      if you reference any symbols from a particular object file
+      improve the layout, development and readability of the
+      in a makefile.
+      in its second parameter, with its first parameter
+      include depends
+      included in the makefile later on using `-include', which
+      information, see the GNU Make manual.
+      input files are and what switches you give it.
+      into make variables during the make process. They are case
+      invoked, which takes object file(s) and links them
+      is a real advantage depends what system you're using, but
+      is formed by removing the .c or .cc from the source file
+      is just like a normal target, but it is not an actual file
+      is often a pretty safe bet that the system header files
+      isn't 100% safe either since changing a header file will
+      it - it has built in rules called implicit rules which
+      it as the program's needs change during development.
+      it first looks through the makefile for rules with foo.o
+      know that they are all phony targets.
+      least, other people will find it much easier to understand
+      libraries and other libraries you may specify. At this
+      like -M, but the information is sent to a file whose name
+      line should be executed.
+      link to an executable file (usually called a.out) from the
+      list and remove all members which exist, leaving behind
+      list of arguments, and lastly a closing bracket. For
+      look for `makefile' or `Makefile' so it's simplest just to
+      looking at each source file in turn, adding its object
+      mainly with djgpp, a DOS port of gcc, so the executable
+      make use its implicit rule (see section 2.4).
+      make will check that exec1 and exec2 don't need
+      makefile as:
+      makefile) containing (principly) information about which
+      many purposes, for example:
+      may or may not choose to follow.
+      myprog : $(OBJS)
+      name, `alleg' library, and the RM-F variable reflect this.
+      need. How exactly you do this will depend on your
+      needed to be created. You would want the primary goal to
+      not cause the dependency information to be updated.
+      object files are up to date - using the rules from the
+      of `all' at all. However, since the file does not exist
+      of a library the whole object file must be linked in. If
+      of a line, followed by an = sign, and then its new value.
+      of course, or you might be able to just start typing, and
+      of this article describes such a tool: the GNU Make
+      often be reused in another project, and last but not
+      older than that on at least one of its dependencies, make
+      on disk. Because of this, make assumes that it needs
+      one needs rebuilding, the other may not. To achieve this
+      opposite.
+      or bar.o as targets. It finds the rule for foo.o, seeing
+      parameters. If they are equal, it includes the portion of
+      patsubst like so:
+      prepended to each word of the list.
+      preprocess, compile and assemble them one by one, then
+      preprocessed again to create the `depends' file, and it
+      preprocessor flags), TARGET_ARCH (don't worry about this),
+      probably wise to also include *.cc, in case the
+      processes, replacing the .c files' suffixes.
+      program. This is in fact true most of the time.
+      program. We can make it search the current directory for
+      project this can mean the difference between a lengthy
+      project up in the first place.
+      project, by using a variable SOURCES as above. It is
+      projects. When you modify a line of your code, the
+      put it in the SOURCES variable. Of course, you don't have
+      rather like the #include system in C - we simply ask make
+      rebuilding (one of the .o files will be newer than
+      rebuilding, and rebuild them if they are out of date,
+      recompiling them. All you need to do is recompile the file
+      references may be reported, usually as errors.
+      remember which of your source files depended on it, since
+      remove the corresponding .o file from disk as well,
+      removed). Using these, then, we could write the above
+      required.
+      required; which of these are called depends upon what the
+      resulting objectfiles. This would work in our case, but
+      rule in the makefile like this:
+      rule we gave. This done, it will include the (new) set of
+      rule.
+      rules and proceed to process the primary goal, `myprog'.
+      second shows what to replace it with, and the third is a
+      sensitive, and normally specified in upper case. They can
+      separated list of all files matching the specification
+      should also list as dependencies any other headers which
+      simply link them to form an executable, again called a.out
+      small programs like `Hello World' can't really be split
+      so it then checks the timestamps on disk. If any of these
+      some other structural changes would be appropriate.
+      source files are already on disk, so there's no point in
+      source files, and assume that they are all part of the
+      space-separated list of words to process. For example,
+      split the file up later when it is getting hard to manage.
+      stage references in one object file to symbols in another
+      standard procedure. In fact, make already knows how to do
+      start off with a scheme in mind and stick to it or adapt
+      suffixes only, forming a list which the outermost patsubst
+      suppresses any errors if the files are not found on disk.
+      surprising since they both achieve similar goals -
+      target `veryclean' must be up to date, and even if the
+      targets as .PHONY, telling make not to bother looking for
+      tell it what to do if you don't put any commands in a
+      than either `foo.o' or `bar.o', the command on the next
+      that changing the value of a variable can change other
+      that it depends on foo.c, foo.h and bar.h. It cannot find
+      that make knows .PHONY is a special target, and of course
+      that was changed, and relink the object files. In a large
+      the -M or -MM switch is suitable for immediate inclusion
+      the .d file will be recreated too.
+      the C source files, replacing the `.c' or `.cc' suffix
+      the entire dependency list (with duplicate filenames
+      the files generated by make. To do this, you could make a
+      the information is all there in the makefile. The make
+      the library is very segmented, the resulting executables
+      the line.
+      the make utility to build your programs - all the tedious
+      the makefile are correct, listing only those header files
+      the makefile up to the else (or endif, if there is no
+      the object file as a target and the C file and all headers
+      the object files together, along with any libraries you
+      the other two rules were executed, myprog will need
+      the previous makefile rewritten using variables:
+      the source files. Now we need to get make to consider
+      the stem. In the second parameter, the % is read as
+      the target file up to date.
+      them on disk, not to bother checking implicit rules, and
+      then it puts the flag `-c' followed by the variable $&lt;
+      then the name followed by a space and a comma-separated
+      then the variable name in brackets. For example, here is
+      there an easier way?
+      there are no commands here which will affect a file called
+      these rules as part of the makefile. The technique here is
+      think before you start how you are going to implement it,
+      this form:
+      though. If you pass -MM instead of -M to gcc, it will omit
+      three parameters - the first is a pattern to match, the
+      through more files to find the function you're looking
+      throwaway test programs is pretty pointless too. In
+      to always assume that the specified target is not up to
+      to create the object files. Next, we can make a rule to
+      to hold your code. Of course, don't hesitate to create new
+      to include this file in the makefile, like so:
+      to store the results in variables.
+      to the preprocessor in implicit rules. The -MD switch is
+      together into an executable file, along with standard
+      tools available to simplify this process. The second half
+      touching on the controversial topic of coding style; what
+      tries not to link in unused code. It can only exclude
+      try to bring `all' up to date on every invocation. Since
+      twenty second adjustment.
+      use them, you write a dollar sign, an open bracket, and
+      use those names.
+      useful ones apart from the default of everything.
+      user explicitly asks make to recreate it nothing will
+      user types `make veryclean' explicitly, make will use this
+      uses several variables, so you can easily customise it to
+      utility will happily recompile any files which are listed
+      utility.
+      variable $@ (the target file). The effective command for C
+      variable; indeed, environment variables are translated
+      variables' values. For example:
+      veryclean :
+      what headers it would include when compiling each source
+      what your code is doing.
+      whatever stem it matched in the first parameter.
+      when gcc/ld links a library into a program at link time it
+      where exec1 and exec2 are the filenames of our two target
+      which #include it; you could type `gcc -c file1.c file2.c
+      which are #included in the source file...
+      which is exactly what we wanted to do.
+      which may also work on your compiler even if it is not
+      which takes one argument and expands into a space-
+      which will be created; if our sources list contains .cc
+      which would create a list of all files ending in `.c' and
+      will include both headers named between angle brackets
+      will issue the commands specified in the hope of bringing
+      will send to stdout a rule for each C file you pass, with
+      will?) prefer to lay things out differently. This is
+      with `.o'. If you pass a list of object files, gcc will
+      with a `.o'. Note that the % symbol matches one or more
+      with reasons for each of these guidelines):
+      with them, of course. If you see a way this makefile could
+      without much modification.
+      without resolving external references. A linker is then
+      would destroy many of the benefits of splitting the
+      would do the trick. Note that this is a special make rule,
+      would take all the words (filenames) in the SOURCES list
+      you are looking for. It's simple - you split the code
+      you can put more dependencies in if you like and make will
+      you can use what is called a phony target. A phony target
+      you're looking for a routine you know exactly where to
+      your tastes; it uses the variable CC to run a compiler
+      yours; I can only make general suggestions here, which you
+   -------------
+   -----------------
+   -----------------
+   ------------------
+   ----------------------
+   ----------------------
+   --------------------------
+   ----------------------------
+   ----------------------------
+   -----------------------------
+   -------------------------------
+   ----------------------------------
+   -----------------------------------
+   1.1 Why use them?
+   1.2 When to split up your projects
+   1.3 How to split up projects
+   1.4 Notes on common errors
+   1.5 Rebuilding a multi-file project
+   2.1 Basic makefile structure
+   2.2 Writing make rules
+   2.3 Makefile variables
+   2.4 Implicit rules
+   2.5 Phony targets
+   2.6 Functions
+   2.7 A pretty effective makefile
+   2.8 A more effective makefile
+   GNU Make is a powerful tool, and although it was designed
+   I hope this article has explained clearly enough how multi-
+   Make utility well enough now to manage small projects, and if
+   file projects work, and has shown how to use them in a way
+   functions, and other features, you should (as with any GNU
+   primarily for building programs in this way it has many other
+   should not have any trouble with it.
+   tool) consult the info pages about it.
+   uses. For more information on the utility, its syntax,
+   which is logical and safe. You should be able to use the GNU
+   you understood what was written in the later sections you
+ Ownership: The section `Multi-file projects' remains the
+#
+#                                    #
+#                                    #
+#                                    #
+#                                    #
+#                                    #
+#                                    #
+#           by George Foot           #
+#          Generic makefile          #
+#        All rights reserved.        #
+#     No warranty, no liability;     #
+#     You are free to modify and     #
+#   Copyright (c) 1997 George Foot   #
+#   credit to the original author.   #
+#   distribute this without giving   #
+#   you use this at your own risk.   #
+# (e.g. alleg, stdcx, iostr, etc). You can override these on make's
+# Adjust the following if necessary; EXECUTABLE is the target
+# Now alter any implicit rules' variables if you like, e.g.:
+# The next bit checks to see whether rm is in your djgpp bin
+# You shouldn't need to change anything below this point.
+# `File not found' error messages. If you are not using DOS at all,
+# command line of course, if you prefer to do it that way.
+# directory; if not it uses del instead, but this can cause (harmless)
+# email: george.foot@merton.ox.ac.uk #
+# executable's filename, and LIBS is a list of libraries to link in
+# files.
+# set the variable to something which will unquestioningly remove
+### Customising
+######################################
+######################################
+$(EXECUTABLE) : $(OBJS)
+$(MISSING_DEPS) :
+-include $(DEPS)
+.PHONY : everything deps objs clean veryclean rebuild
+0) Introduction
+1) Multi-file projects
+2) The GNU Make utility
+3 In conclusion
+</body></html>
+</body></html>
+</font></i>
+</head><body>
+</pre>
+<a href="http://cscene.oftheinter.net/">C Scene</a>. All Rights Reserved
+<a href="http://cscene.oftheinter.net/">http://cscene.oftheinter.net</a><br>
+<a href="http://www.codersger.de/mags/cscene/CS2/CS2-01.html">C-Scene Issue #2</a>
+<a href="mailto:cscene@mindless.com">cscene@mindless.com</a>
+<hr>
+<hr>
+<hr>
+<html><head>
+<i><font size="-1" color="#008080">
+<meta http-equiv="content-type" content="text/html; charset=GB2312">
+<pre>==============================================================================
+<title>C-Scene - Issue #2 - Article 10</title>
+=== end of makefile ===
+=== end of makefile ===
+=== end of makefile ===
+=== end of makefile ===
+=== start of makefile ===
+=== start of makefile ===
+=== start of makefile ===
+=== start of makefile ===
+==============================================================================
+Author: George Foot
+C Scene Official Email : 
+C Scene Official Web Site :
+CC = gcc
+CC = gcc
+CFLAGS := -g -Wall -O3 -m486
+CFLAGS = -Wall -O -g
+CFLAGS = -Wall -O -g
+CPPFLAGS += -MD
+CXXFLAGS := $(CFLAGS)
+DEPS := $(patsubst %.o,%.d,$(OBJS))
+Disclaimer: The author accepts no liability whatsoever for any
+EXECUTABLE := mushroom.exe
+Email: george.foot@merton.ox.ac.uk
+IRC nick: gfoot
+LIBS := alleg
+MISSING_DEPS := $(filter-out $(wildcard $(DEPS)),$(DEPS))
+MISSING_DEPS_SOURCES := $(wildcard $(patsubst %.d,%.c,$(MISSING_DEPS)) \
+Multi-file projects and the GNU Make utility
+OBJS := $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SOURCE)))
+OBJS = foo.o bar.o
+OBJS = foo.o bar.o
+Occupation: Student at Merton College, Oxford University, England
+RM-F := del
+RM-F := rm -f
+SOURCE := $(wildcard *.c) $(wildcard *.cc)
+This article will explain firstly why, when and how to split
+This page is Copyright &#169; 1997 By
+bar.o : bar.c bar.h
+bar.o : bar.c bar.h
+bar.o : bar.c bar.h
+clean :
+deps : $(DEPS)
+else
+endif
+endif
+everything : $(EXECUTABLE)
+foo.o : foo.c foo.h bar.h
+foo.o : foo.c foo.h bar.h
+foo.o : foo.c foo.h bar.h
+ifneq ($(MISSING_DEPS),)
+ifneq ($(wildcard $(DJDIR)/bin/rm.exe),)
+myprog : $(OBJS)
+myprog : $(OBJS)
+myprog : foo.o bar.o
+objs : $(OBJS)
+rebuild: veryclean everything
+require some adaptation to work on other utilities. If in doubt,
+then go on to show you how the GNU Make utility can handle all
+try it out, but check the manual first.
+utilities may still find the information useful, but it may
+veryclean: clean
+your C source code between several files sensibly, and it will
+your compilation and linking automatically. Users of other make
+~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~

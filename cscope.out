@@ -1,4 +1,4 @@
-cscope 15 $HOME/workspace/cs106_library               0000019686
+cscope 15 $HOME/workspace/cs106_library               0000022059
 	@CS106LAssert.h
 
 1 #iâdeà
@@ -329,569 +329,555 @@ __LINE__
 
 	)
 
-	@STL_test.cpp
+	@STL_algorithms.cpp
 
 1 
-	~"STL_uts.h
+	~"STL_®gÜ™hms.h
 "
 
 2 
-	~"simpio.h
-"
+	~<veùÜ
+>
 
 3 
-	~"g’lib.h
-"
+	~<io¡»am
+>
+
+4 
+	~<™”©Ü
+>
+
+5 
+	~<®gÜ™hm
+>
+
+6 
+	~<num”ic
+>
+
+7 
+	~<cm©h
+>
+
+9 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+11 
+boŞ
+ 
+PrštVeùÜ
+(
+veùÜ
+<> 
+toPršt
+)
+
+15 
+cİy
+(
+toPršt
+.
+begš
+(),toPršt.
+’d
+(),
+o¡»am_™”©Ü
+<>(
+cout
+," "));
+
+17  
+	gŒue
+;
+
+20 
+boŞ
+ 
+	$TooShÜt
+(
+¡ršg
+& 
+toTe¡
+)
+
+22 cÚ¡ 
+¡ršg
+::
+size_ty³
+ 
+THRESHOLD
+ = 3;
+
+23 if(
+toTe¡
+.
+	`size
+()>=
+THRESHOLD
+)
+
+24  
+çl£
+;
+
+26  
+Œue
+;
+
+27 
+	}
+}
+
+29 
+boŞ
+ 
+RemoveShÜtWÜds
+(
+veùÜ
+<
+¡ršg
+> 
+toRemove
+)
+
+31 
+»move_if
+(
+toRemove
+.
+begš
+(),toRemove.
+’d
+(),
+TooShÜt
+);
+
+32  
+	gŒue
+;
+
+35 
+	$loÿlSqu¬e
+(
+–em’t
+)
+
+37  
+–em’t
+*element;
+
+38 
+	}
+}
+
+40 
+Di¡ªûToOrigš
+(
+veùÜ
+<> 
+toSqu¬e
+)
+
+42 
+	gveùÜ
+<> 
+	gsqu¬ed
+;
+
+43 
+	gsqu¬ed
+.
+»size
+(
+toSqu¬e
+.
+size
+());
+
+44 
+ŒªsfÜm
+(
+toSqu¬e
+.
+begš
+(),toSqu¬e.
+’d
+(),
+squ¬ed
+.begš(),
+loÿlSqu¬e
+);
+
+45 
+	gsum
+=
+accumuÏ‹
+(
+squ¬ed
+.
+begš
+(),squ¬ed.
+’d
+(),0.0);
+
+46  
+sq¹
+(
+sum
+);
+
+49 
+boŞ
+ 
+	$loÿlCom·»
+(
+¡ršg
+ 
+¡r1
+, sŒšg 
+¡r2
+)
+
+51 if(
+¡r1
+.
+	`com·»
+("Me First")==0)
+
+52  
+Œue
+;
+
+53 if(
+¡r2
+.
+	`com·»
+("Me First")==0)
+
+54  
+çl£
+;
+
+55 if(
+¡r1
+.
+	`com·»
+(
+¡r2
+)<0)
+
+56  
+Œue
+;
+
+58  
+çl£
+;
+
+59 
+	}
+}
+
+61 
+boŞ
+ 
+BŸ£dSÜt
+(
+veùÜ
+<
+¡ršg
+>& 
+toSÜt
+)
+
+63 
+sÜt
+(
+toSÜt
+.
+begš
+(),toSÜt.
+’d
+(),
+loÿlCom·»
+);
+
+65  
+	gŒue
+;
+
+68 
+	g£t
+<
+	g¡ršg
+> 
+Cr™icsPick
+(
+m­
+<
+¡ršg
+,> 
+toPick
+)
+
+70 
+	gm­
+<,
+	g¡ršg
+> 
+	gP®m­
+;
+
+71 
+	gm­
+<
+	g¡ršg
+,>::
+™”©Ü
+ 
+™r
+=
+toPick
+.
+begš
+();
+
+72 
+	g™r
+!=
+toPick
+.
+’d
+();
+
+73 ++
+	g™r
+)
+
+75 
+	gP®m­
+.
+š£¹
+(
+make_·œ
+<,
+¡ršg
+>(
+™r
+->
+£cÚd
+,™r->
+fœ¡
+));
+
+78 
+	g£t
+<
+	g¡ršg
+> 
+	gtİMov›
+;
+
+79 
+	gcouÁ
+=0;
+
+80 
+	gm­
+<,
+	g¡ršg
+>::
+™”©Ü
+ 
+™r
+=
+P®m­
+.
+begš
+();
+
+81 (
+	g™r
+!=
+P®m­
+.
+’d
+())&&(
+couÁ
+<10);
+
+82 ++
+	g™r
+,++
+	gcouÁ
+)
+
+84 
+	gtİMov›
+.
+š£¹
+(
+™r
+->
+£cÚd
+);
+
+87  
+	gtİMov›
+;
+
+90 
+CS106_couÁ
+(
+veùÜ
+<>::
+™”©Ü
+ 
+¡¬t
+, veùÜ<>::™”©Ü 
+’d
+, 
+key
+)
+
+92 
+	gút
+=0;
+
+93 
+	gveùÜ
+<>::
+™”©Ü
+ 
+™r
+=
+¡¬t
+;
+
+94 
+	g™r
+!=
+’d
+;
+
+95 ++
+	g™r
+)
+
+97 if(*
+	g™r
+==
+key
+)
+
+99 ++
+út
+;
+
+102  
+	gút
+;
+
+	@STL_algorithms.h
+
+1 #iâdeà
+_STL_ALGORITHMS_H
+
+
+2 
+	#_STL_ALGORITHMS_H
+
+
+	)
 
 4 
 	~<veùÜ
 >
 
 5 
-	~<¡ack
+	~<¡ršg
 >
 
-7 
-	$maš
-()
+6 
+	~<m­
+>
+
+7 
+	~<£t
+>
 
 9 
-veùÜ
-<> 
-veù
-;
-
-10  
-i
- = 0; i < 10; i++ )
-
-12 
-veù
-.
-	`push_back
- ( 
-i
- );
-
-15 
-¡ack
-<> 
-¡k_1
-,
-¡k_2
-;
-
-16  
-veùÜ
-<>::
-™”©Ü
+usšg
  
-™r
- = 
-veù
-.
-	`begš
-();
+Çme¥aû
+ 
+	g¡d
+;
+
+11 
+boŞ
+ 
+PrštVeùÜ
+(
+veùÜ
+<>);
+
+13 
+boŞ
+ 
+RemoveShÜtWÜds
+(
+veùÜ
+<
+¡ršg
+>);
+
+15 
+Di¡ªûToOrigš
+(
+veùÜ
+<>);
 
 17 
-™r
- !ğ
-veù
-.
-	`’d
-();
-
-18 ++
-™r
- )
-
-20 
-¡k_1
-.
-	`push
- ( *
-™r
- );
-
-21 
-¡k_2
-.
-	`push
- ( *
-™r
- );
-
-24 
-cout
- << 
-’dl
- << "Original Stack: " <<ƒndl;
-
-25  !
-¡k_1
-.
-	`em±y
-() )
-
-27 
-cout
- << 
-¡k_1
-.
-	`tİ
-() << ", ";
-
-28 
-¡k_1
-.
-	`pİ
-();
-
-31 
-	`Rev”£Sck
- ( 
-¡k_2
- );
-
-32 
-cout
- << 
-’dl
- << "Reverse Stack: " <<ƒndl;
-
-33  !
-¡k_2
-.
-	`em±y
-() )
-
-35 
-cout
- << 
-¡k_2
-.
-	`tİ
-() << ", ";
-
-36 
-¡k_2
-.
-	`pİ
-();
-
-40 
-veùÜ
-<> 
-¬¿y
-;
-
-41 
-	`G’”©eG’”®FibÚacciNumb”s
+boŞ
+ 
+BŸ£dSÜt
 (
-¬¿y
-, 1, 2);
-
-42 
-cout
- << 
-’dl
- << "The Fibonacci‚umbers: " <<ƒndl;
-
-43 
 veùÜ
-<>::
-™”©Ü
- 
-™r
-=
-¬¿y
-.
-	`begš
-();
-
-44 
-™r
-!=
-¬¿y
-.
-	`’d
-();
-
-45 ++
-™r
-)
-
-47 
-cout
- << *
-™r
- << ", ";
-
-51 
-queue
-<> 
-que
-;
-
-52 
-veùÜ
-<>::
-™”©Ü
- 
-™r
-=
-¬¿y
-.
-	`begš
-();
-
-53 
-™r
-!=
-¬¿y
-.
-	`’d
-();
-
-54 ++
-™r
-)
-
-56 
-que
-.
-	`push
-(*
-™r
-);
-
-58 
-	`CyşeQueue
-(
-que
-, 10);
-
-59 
-cout
- << 
-’dl
- << "The cycled queue: " <<ƒndl;
-
-60 !
-que
-.
-	`em±y
-())
-
-62 
-cout
- << 
-que
-.
-	`äÚt
-() << ", ";
-
-63 
-que
-.
-	`pİ
-();
-
-67 
-veùÜ
-<> 
-	`cyveù
-(
-¬¿y
-);
-
-68 
-	`CyşeVeùÜ
-(
-cyveù
-, 5);
-
-69 
-cout
- << 
-’dl
- << "The cycled vector: " <<ƒndl;
-
-70 
-veùÜ
-<>::
-™”©Ü
- 
-™r
-=
-cyveù
-.
-	`begš
-();
-
-71 
-™r
-!=
-cyveù
-.
-	`’d
-();
-
-72 ++
-™r
-)
-
-74 
-cout
- << *
-™r
- << ", ";
-
-78 
-deque
-<> 
-cydeq
-;
-
-79 
-veùÜ
-<>::
-™”©Ü
- 
-™r
-=
-¬¿y
-.
-	`begš
-();
-
-80 
-™r
-!=
-¬¿y
-.
-	`’d
-();
-
-81 ++
-™r
-)
-
-83 
-cydeq
-.
-	`push_back
-(*
-™r
-);
-
-85 
-	`CyşeDeque
-(
-cydeq
-,10);
-
-86 
-cout
- << 
-’dl
- << "The cycled deque: " <<ƒndl;
-
-87 
-deque
-<>::
-™”©Ü
- 
-™r
-=
-cydeq
-.
-	`begš
-();
-
-88 
-™r
-!=
-cydeq
-.
-	`’d
-();
-
-89 ++
-™r
-)
-
-91 
-cout
- << *
-™r
- << ", ";
-
-93 
-cout
- << 
-’dl
-;
-
-95 
-	`ClockVeùÜIn£¹
-();
-
-97 
-if¡»am
- 
-	`‹¡sourû
-("input_test.htm");
-
-98 
-m­
-<,> 
-bË
-;
-
-99 
-	`CouÁL‘‹rs
-(
-‹¡sourû
-,
-bË
-);
-
-101 
-veùÜ
-<> 
-sÜ‹dveù
-;
-
-103 
-sÜ‹dveù
-=
-	`Li¡SÜtVeùÜ
-(
-cyveù
-);
-
-104 
-veùÜ
-<>::
-™”©Ü
- 
-™r
-=
-sÜ‹dveù
-.
-	`begš
-();
-
-105 
-™r
-!=
-sÜ‹dveù
-.
-	`’d
-();
-
-106 ++
-™r
-)
-
-108 
-cout
- << *
-™r
- << ", ";
-
-111 
-¡ršg
- 
-toCouÁ
-;
-
-112 
-toCouÁ
-=
-	`G‘Lše
-();
-
-113 
-cout
- << 
-’dl
- << "The‚um of unique characters: "
-
-114 << 
-	`NumUniqueCh¬aù”s
-(
-toCouÁ
-è<< 
-’dl
-;
-
-116 
-¡ršg
- 
-f’ame
-;
-
-117 
-f’ame
-=
-	`G‘Lše
-();
-
-118 
-£t
 <
 ¡ršg
+>&);
+
+19 
+	g£t
+<
+	g¡ršg
 > 
-tok’s
-;
-
-119 
-tok’s
-=
-	`LßdAÎTok’s
+Cr™icsPick
 (
-f’ame
-);
-
-120 
-£t
+m­
 <
 ¡ršg
->::
+,> );
+
+21 
+CS106_couÁ
+(
+veùÜ
+<>::
 ™”©Ü
  
-™r
-=
-tok’s
-.
-	`begš
-();
-
-121 
-™r
-!=
-tok’s
-.
-	`’d
-();
-
-122 ++
-™r
-)
-
-124 
-cout
- << *
-™r
- << 
-’dl
-;
-
-127 
-	}
-}
+¡¬t
+, veùÜ<>::™”©Ü 
+’d
+, 
+key
+);
 
 	@STL_utils.cpp
 
@@ -2103,6 +2089,14 @@ f’am
 	~<¡ack
 >
 
+6 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
 7 
 	$maš
 ()
@@ -2675,6 +2669,376 @@ couÁ
 	}
 }
 
+	@TestCase/algotithms_test.cpp
+
+1 
+	~"STL_®gÜ™hms.h
+"
+
+2 
+	~<m­
+>
+
+3 
+	~<£t
+>
+
+4 
+	~<veùÜ
+>
+
+5 
+	~<io¡»am
+>
+
+6 
+	~<™”©Ü
+>
+
+7 
+	~<c¡ršg
+>
+
+8 
+	~<f¡»am
+>
+
+10 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+12 
+	$maš
+()
+
+14 
+veùÜ
+<> 
+toPršt
+;
+
+15 
+i
+=0;i<50;++i)
+
+17 
+toPršt
+.
+	`push_back
+(
+i
+);
+
+19 
+	`PrštVeùÜ
+(
+toPršt
+);
+
+21 
+¡ršg
+ 
+dummy_¡r
+="Today is April's fool!";
+
+22 
+veùÜ
+<
+¡ršg
+> 
+dummy_¡rs
+;
+
+23 
+¡ršg
+::
+size_ty³
+ 
+couÁ
+=1;
+
+24 
+couÁ
+<=
+dummy_¡r
+.
+	`size
+();
+
+25 ++
+couÁ
+)
+
+27 
+dummy_¡rs
+.
+	`push_back
+(
+dummy_¡r
+.
+	`sub¡r
+(0,
+couÁ
+));
+
+29 
+	`RemoveShÜtWÜds
+(
+dummy_¡rs
+);
+
+30 
+	`cİy
+(
+dummy_¡rs
+.
+	`begš
+(),dummy_¡rs.
+	`’d
+(),
+o¡»am_™”©Ü
+<
+¡ršg
+>(
+cout
+,"\n"));
+
+32 
+veùÜ
+<> 
+toSqu¬e
+;
+
+33 
+cout
+ << "Thsqu¬sum oà" << 
+’dl
+;
+
+34 
+–em
+=1.0;elem<5.0;elem+=1.0)
+
+36 
+toSqu¬e
+.
+	`push_back
+(
+–em
+);
+
+37 
+cout
+ << 
+–em
+ << ", ";
+
+39 
+cout
+ << "Th»suÉ: " << 
+	`Di¡ªûToOrigš
+(
+toSqu¬e
+è<< 
+’dl
+;
+
+41 
+veùÜ
+<
+¡ršg
+> 
+toSÜt
+;
+
+42 cÚ¡ 
+LšeNum
+=500;
+
+43 
+toSÜt
+.
+	`»size
+(
+LšeNum
+);
+
+44 
+if¡»am
+ 
+	`¿wd©a
+("input_test.htm");
+
+45 
+¡ršg
+ 
+¡r_tmp
+=" ";
+
+46 !(
+¿wd©a
+.
+	`eof
+()&&¿wd©a.
+	`ç
+()))
+
+48 
+	`g‘lše
+(
+¿wd©a
+,
+¡r_tmp
+);
+
+49 
+toSÜt
+.
+	`push_back
+(
+¡r_tmp
+);
+
+51 
+¡r_tmp
+="Me First";
+
+52 
+toSÜt
+.
+	`push_back
+(
+¡r_tmp
+);
+
+53 
+	`BŸ£dSÜt
+(
+toSÜt
+);
+
+54 
+	`cİy
+(
+toSÜt
+.
+	`begš
+(),toSÜt.
+	`’d
+(),
+o¡»am_™”©Ü
+<
+¡ršg
+>(
+cout
+,"\n"));
+
+56 
+if¡»am
+ 
+	`mov›d©a
+("movie_rate");
+
+57 
+¡ršg
+ 
+mov›_Çme
+;
+
+58 
+mov›_¿‹
+;
+
+59 
+m­
+<
+¡ršg
+,> 
+toPick
+;
+
+60 !(
+mov›d©a
+.
+	`eof
+()&&mov›d©a.
+	`ç
+()))
+
+62 
+mov›d©a
+ >> 
+mov›_Çme
+ >> 
+mov›_¿‹
+;
+
+63 
+toPick
+.
+	`š£¹
+(
+	`make_·œ
+(
+mov›_Çme
+,
+mov›_¿‹
+));
+
+66 
+£t
+<
+¡ršg
+> 
+pickedMov›
+;
+
+67 
+pickedMov›
+=
+	`Cr™icsPick
+(
+toPick
+);
+
+68 
+	`cİy
+(
+pickedMov›
+.
+	`begš
+(),pickedMov›.
+	`’d
+(),
+o¡»am_™”©Ü
+<
+¡ršg
+>(
+cout
+,"\n"));
+
+70 
+cout
+ << 
+	`CS106_couÁ
+(
+toPršt
+.
+	`begš
+(),toPršt.
+	`’d
+(),20è<< 
+’dl
+;
+
+73 
+	}
+}
+
 	@TestCase/cstr_utils_test.cpp
 
 1 
@@ -2878,6 +3242,132 @@ cout
 ;
 
 63 
+	}
+}
+
+	@UniquelyIdentified.cpp
+
+1 
+	~<io¡»am
+>
+
+3 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+5 şas 
+	cUniqu–yId’tif›d
+
+
+7 
+	mpublic
+:
+
+8 
+Uniqu–yId’tif›d
+();
+
+9 ~
+Uniqu–yId’tif›d
+();
+
+10 
+	$g‘UniqueID
+() const;
+
+11 
+´iv©e
+:
+
+12 
+š¡ªûID
+;
+
+13 
+š¡ªûCouÁ”
+;
+
+16 
+Uniqu–yId’tif›d
+::
+	$Uniqu–yId’tif›d
+()
+
+18 
+š¡ªûID
+=++
+š¡ªûCouÁ”
+;
+
+19 
+cout
+ << "In¡ªû C»©ed " << 
+š¡ªûID
+ << 
+’dl
+;
+
+20 
+	}
+}
+
+22 
+	gUniqu–yId’tif›d
+::~
+	$Uniqu–yId’tif›d
+()
+
+24 
+cout
+ << "š¡ªû De¡royed " << 
+š¡ªûID
+ << 
+’dl
+;
+
+25 
+	}
+}
+
+27 
+	gUniqu–yId’tif›d
+::
+	$g‘UniqueID
+()
+
+29  
+š¡ªûID
+;
+
+30 
+	}
+}
+
+32 
+	$maš
+()
+
+34 
+Uniqu–yId’tif›d
+ 
+objeù1
+,
+objeù2
+,
+objeù3
+;
+
+36 
+Uniqu–yId’tif›d
+ 
+objeù4
+;
+
+40 
 	}
 }
 
@@ -4314,21 +4804,24 @@ sourû
 .
 1
 /usr/include
-22
-359
+25
+434
 CS106LAssert.h
 CS106LDebug.h
 CS106LNotReached.h
 CS106LVerify.h
-STL_test.cpp
+STL_algorithms.cpp
+STL_algorithms.h
 STL_utils.cpp
 STL_utils.h
 TestCase/STL_test.cpp
 TestCase/XMacros_test.cpp
+TestCase/algotithms_test.cpp
 TestCase/cstr_utils_test.cpp
 TestCase/debug_test.cpp
 TestCase/error_test.cpp
 TestCase/streamutil_test.cpp
+UniquelyIdentified.cpp
 X_Macro.h
 color.h
 cstr_utils.cpp
