@@ -37,5 +37,6 @@ endif
 -include $(DEPS)
 
 $(EXECUTABLE) : $(OBJS)
-	$(CC) -o $(EXECUTABLE) $(OBJS) $(addprefix -l,$(LIBS))
+	$(CC) -o $(EXECUTABLE) $(OBJS) 
+# $(addprefix -l,$(LIBS))
 
